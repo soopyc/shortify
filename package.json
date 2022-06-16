@@ -2,6 +2,7 @@
   "name": "link-shortener",
   "version": "0.0.1-alpha",
   "scripts": {
+    "migrate": "yarn node-pg-migrate -f config.json",
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "package": "svelte-kit package",
@@ -16,6 +17,7 @@
     "@sveltejs/adapter-node": "next",
     "@sveltejs/kit": "next",
     "@types/inquirer": "^8.2.1",
+    "@types/pg": "^8.6.5",
     "bootstrap-icons": "^1.8.3",
     "chalk": "^5.0.1",
     "inquirer": "^8.2.4",
