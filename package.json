@@ -16,6 +16,7 @@
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/adapter-node": "next",
     "@sveltejs/kit": "next",
+    "@types/config": "^0.0.41",
     "@types/inquirer": "^8.2.1",
     "@types/pg": "^8.6.5",
     "bootstrap-icons": "^1.8.3",
