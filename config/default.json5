@@ -1,11 +1,19 @@
 {
     db: {
         // either this
-        url: null,
+        // url: null,
+
         // or these
-        host: null,
-        port: 5432,
-        user: null,
-        password: null,
+        // host: null,
+        // port: 5432,
+        // user: null,
+        // password: null,
+    },
+    contact: {
+        // email: null,
+    },
+    ratelimit: {
+        // period: 60,
+        // maxReq: 10
     }
 }
