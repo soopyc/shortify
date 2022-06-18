@@ -13,15 +13,17 @@ const config = {
       scss: {
         prependData: '@use "src/variables.scss" as *;',
       },
-      replace: [
-        [/process\.env\.PACKAGE_JSON/g, JSON.stringify(pkg)]
-      ]
+    //   replace: [
+    //     [/process\.env\.PACKAGE_JSON/g, JSON.stringify(pkg)]
+    //   ]
     }),
   ],
 
   kit: {
     adapter: adapter(),
-
+    files: {
+        hooks: "src/hooks"
+    },
     vite: {
       css: {
         preprocessorOptions: {
