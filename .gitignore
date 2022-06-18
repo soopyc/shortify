@@ -139,4 +139,4 @@ dist
 .pnp.*
 
 # Credentials
-config.json
+config/local-*

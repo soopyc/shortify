@@ -1,0 +1,11 @@
+{
+    db: {
+        // either this
+        url: null,
+        // or these
+        host: null,
+        port: 5432,
+        user: null,
+        password: null,
+    }
+}

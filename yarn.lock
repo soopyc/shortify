@@ -714,6 +714,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"config@npm:^3.3.7":
+  version: 3.3.7
+  resolution: "config@npm:3.3.7"
+  dependencies:
+    json5: ^2.1.1
+  checksum: 53b68dbf303a262b16ee376bb8ee08a9f1f4d09ea5d35a45cd9a47a47591a0817c00d5d10f0d53328221f2a927c98ef8eb921679ad9722c80400df6839c40861
+  languageName: node
+  linkType: hard
+
 "console-control-strings@npm:^1.0.0, console-control-strings@npm:^1.1.0, console-control-strings@npm:~1.1.0":
   version: 1.1.0
   resolution: "console-control-strings@npm:1.1.0"
@@ -1599,6 +1608,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"json5@npm:^2.1.1":
+  version: 2.2.1
+  resolution: "json5@npm:2.2.1"
+  bin:
+    json5: lib/cli.js
+  checksum: 74b8a23b102a6f2bf2d224797ae553a75488b5adbaee9c9b6e5ab8b510a2fc6e38f876d4c77dea672d4014a44b2399e15f2051ac2b37b87f74c0c7602003543b
+  languageName: node
+  linkType: hard
+
 "kleur@npm:^4.1.4":
   version: 4.1.4
   resolution: "kleur@npm:4.1.4"
@@ -1619,6 +1637,7 @@ __metadata:
     bootstrap: 5.2.0-beta1
     bootstrap-icons: ^1.8.3
     chalk: ^5.0.1
+    config: ^3.3.7
     dotenv: ^16.0.1
     inquirer: ^8.2.4
     node-pg-migrate: ^6.2.1

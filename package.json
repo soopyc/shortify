@@ -2,7 +2,7 @@
   "name": "link-shortener",
   "version": "0.0.1-alpha",
   "scripts": {
-    "migrate": "yarn node-pg-migrate -f config.json",
+    "migrate": "yarn node-pg-migrate",
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "package": "svelte-kit package",
@@ -33,6 +33,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.5",
     "bootstrap": "5.2.0-beta1",
+    "config": "^3.3.7",
     "dotenv": "^16.0.1",
     "node-pg-migrate": "^6.2.1",
     "pg": "^8.7.3"

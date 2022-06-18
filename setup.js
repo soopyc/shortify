@@ -2,9 +2,11 @@ import inquirer from 'inquirer';
 import fs from 'fs';
 import chalk from 'chalk';
 
+const environment = process.env.NODE_ENV ?? "development"
+
 // check if file already exists and prevent overwriting values
 // technically i can put .answers to the questions/the Prompt but that requires more Effort and i am Lazy as Hell so i am not going to do that
-if (fs.existsSync('config.json')) {
+if (fs.existsSync(`local-${environment}.json`)) {
     // Spot the python developer
     const {remake} = await inquirer.prompt([{type: "confirm", name: "remake", message: "A config.json file already exists. Do you still want to make a new one?", default: false}])
     if (!remake) {
@@ -20,7 +22,7 @@ function nonEmpty(input) {return input === "" ? "Please enter something" : true}
 const questions = []
 
 if (modes.db === 'Connection String') {
-    questions.push({type: "input", name: "db.connection_string", message: "Database connection string:", validate: nonEmpty})
+    questions.push({type: "input", name: "db.url", message: "Database connection string:", validate: nonEmpty})
 } else if (modes.db === 'Credentials') {
     questions.push({type: "input", name: "db.host", message: "Database host:", validate: nonEmpty})
     questions.push({type: "input", name: "db.port", message: "Database port:", default: "5432", validate: nonEmpty})
@@ -31,5 +33,5 @@ if (modes.db === 'Connection String') {
 
 const ans = await inquirer.prompt(questions)
 
-fs.writeFileSync('config.json', JSON.stringify(ans, null, 4))
+fs.writeFileSync(`config/local-${environment}.json`, JSON.stringify(ans, null, 4))
 console.log(chalk.green("✔"), "Wrote config to config.json")
