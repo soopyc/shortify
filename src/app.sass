@@ -1,0 +1,79 @@
+/* Write your global styles here, in SCSS syntax. Variables and mixins from the src/variables.scss file are available here without importing */
+@import "bootstrap/scss/functions"
+
+$font-family-base: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+
+@import "bootstrap/scss/variables"
+
+@import "bootstrap/scss/maps"
+@import "bootstrap/scss/mixins"
+@import "bootstrap/scss/root"
+
+@import "bootstrap/scss/utilities"
+@import "bootstrap/scss/reboot"
+@import "bootstrap/scss/type"
+@import "bootstrap/scss/images"
+@import "bootstrap/scss/buttons"
+@import "bootstrap/scss/forms"
+@import "bootstrap/scss/containers"
+@import "bootstrap/scss/grid"
+@import "bootstrap/scss/helpers"
+
+@import "bootstrap/scss/utilities/api"
+
+@import "bootstrap-icons/font/bootstrap-icons.scss"
+
+.app
+    max-width: none
+    margin: none
+    padding-left: 2rem
+    padding-right: 2rem
+
+@include media-breakpoint-up(sm) 
+    .app 
+        max-width: 42rem
+        margin: 1rem auto
+        padding-left: 5rem
+        padding-right: 5rem
+    
+
+
+.app h1, .app h2, .app h3, .app h4, .app h5, .app h6 
+    margin-left: -1rem
+    padding-left: -1rem
+
+
+.app-nav 
+    max-width: 42rem
+    margin: 1rem auto
+    padding-left: 1rem
+    padding-right: 1rem
+    display: flex
+    justify-content: space-between
+
+
+a 
+    text-decoration: none
+
+
+a:hover 
+    text-decoration: underline
+
+
+@include media-breakpoint-up(sm) 
+    .app-nav 
+        padding-left: 3rem
+        padding-right: 3rem
+    
+
+
+// adapted from tailwind css
+.transition-color 
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke
+    // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+    transition-duration: 200ms
+
+
+@media (prefers-reduced-motion) 
+    .transition-color 
+        transition-property: none

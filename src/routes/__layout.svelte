@@ -1,5 +1,5 @@
 <script lang="ts">
-    import "../app.scss";
+    import "../app.sass";
     import { dev } from "$app/env";
     import { session } from "$app/stores";
     export const pkg = $session.pkg;
