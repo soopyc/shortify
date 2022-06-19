@@ -12,7 +12,7 @@ const config = {
   preprocess: [
     preprocess({
       scss: {
-        prependData: '@use "src/variables.scss" as *;',
+        prependData: '@use "src/variables.sass" as *;',
       },
       replace: [
         [/\$CONTACT_EMAIL/g, sconfig.get("contact.email")]
@@ -29,7 +29,7 @@ const config = {
       css: {
         preprocessorOptions: {
           scss: {
-            additionalData: '@use "src/variables.scss" as *;',
+            additionalData: '@use "src/variables.sass" as *;',
           },
         },
       },
