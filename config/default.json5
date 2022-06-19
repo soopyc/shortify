@@ -10,10 +10,16 @@
         // password: null,
     },
     contact: {
-        // email: null,
+        email: null,
     },
     ratelimit: {
-        // period: 60,
-        // maxReq: 10
+        period: 60,
+        maxReq: 10
+    },
+    site: {
+        domain: "localhost",
+        
+        // sentry (compatible) dsn url, optional
+        dsn: null,
     }
 }
