@@ -1,5 +1,5 @@
 {
-  "name": "link-shortener",
+  "name": "linkify",
   "version": "0.0.1-alpha",
   "scripts": {
     "migrate": "yarn node-pg-migrate",
@@ -16,6 +16,7 @@
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/adapter-node": "next",
     "@sveltejs/kit": "next",
+    "@types/bootstrap": "^5.1.12",
     "@types/config": "^0.0.41",
     "@types/inquirer": "^8.2.1",
     "@types/pg": "^8.6.5",
@@ -33,7 +34,10 @@
   "packageManager": "yarn@3.2.1",
   "dependencies": {
     "@popperjs/core": "^2.11.5",
+    "@redis/client": "^1.1.0",
+    "@sentry/browser": "^7.2.0",
     "@sentry/node": "^7.2.0",
+    "@sentry/tracing": "^7.2.0",
     "bootstrap": "5.2.0-beta1",
     "config": "^3.3.7",
     "dotenv": "^16.0.1",

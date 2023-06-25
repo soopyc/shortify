@@ -109,10 +109,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@popperjs/core@npm:^2.11.5":
+"@popperjs/core@npm:^2.11.5, @popperjs/core@npm:^2.9.2":
   version: 2.11.5
   resolution: "@popperjs/core@npm:2.11.5"
   checksum: fd7f9dca3fb716d7426332b6ee283f88d2724c0ab342fb678865a640bad403dfb9eeebd8204a406986162f7e2b33394f104320008b74d0e9066d7322f70ea35d
+  languageName: node
+  linkType: hard
+
+"@redis/client@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@redis/client@npm:1.1.0"
+  dependencies:
+    cluster-key-slot: 1.1.0
+    generic-pool: 3.8.2
+    yallist: 4.0.0
+  checksum: 4f1f4a079eeb49e29e381f00be7da6ca606e8b744878e9b2e90a5800b902cdba6a631b10a7be4ed6a740d6fa4282f055c0d6d89e44eea5cbcaa8e2da10b397fc
   languageName: node
   linkType: hard
 
@@ -123,6 +134,18 @@ __metadata:
     estree-walker: ^2.0.1
     picomatch: ^2.2.2
   checksum: 6bc41f22b1a0f1efec3043899e4d3b6b1497b3dea4d94292d8f83b4cf07a1073ecbaedd562a22d11913ff7659f459677b01b09e9598a98936e746780ecc93a12
+  languageName: node
+  linkType: hard
+
+"@sentry/browser@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "@sentry/browser@npm:7.2.0"
+  dependencies:
+    "@sentry/core": 7.2.0
+    "@sentry/types": 7.2.0
+    "@sentry/utils": 7.2.0
+    tslib: ^1.9.3
+  checksum: 2be1f6e963805aa26158fdeee0f9a1e3ff3fd7f84b3809a84e3224672138850c2606b94fcad4d516ab020ca98c94bdda44a87fe5db076dfae98ac9f0ea26abd5
   languageName: node
   linkType: hard
 
@@ -162,6 +185,18 @@ __metadata:
     lru_map: ^0.3.3
     tslib: ^1.9.3
   checksum: 5561842e26bee6a559c4f1d6bb75a4304367e8f78576fdffddc72e568a976278c5b0d9a15adab461890c79cffa977f0bff318b7ec802e1c372614e9b36e2142d
+  languageName: node
+  linkType: hard
+
+"@sentry/tracing@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "@sentry/tracing@npm:7.2.0"
+  dependencies:
+    "@sentry/hub": 7.2.0
+    "@sentry/types": 7.2.0
+    "@sentry/utils": 7.2.0
+    tslib: ^1.9.3
+  checksum: 52ce478acb8c1cb499b89bf3b2cc0cdb880a5e203e3a3915c019a78a3227b13bbb349069df49e487407237e9d0bae37ee99a557e9f10d31e09e0d27f173fb528
   languageName: node
   linkType: hard
 
@@ -275,6 +310,15 @@ __metadata:
   version: 2.0.0
   resolution: "@tootallnate/once@npm:2.0.0"
   checksum: ad87447820dd3f24825d2d947ebc03072b20a42bfc96cbafec16bff8bbda6c1a81fcb0be56d5b21968560c5359a0af4038a68ba150c3e1694fe4c109a063bed8
+  languageName: node
+  linkType: hard
+
+"@types/bootstrap@npm:^5.1.12":
+  version: 5.1.12
+  resolution: "@types/bootstrap@npm:5.1.12"
+  dependencies:
+    "@popperjs/core": ^2.9.2
+  checksum: 87e7b093c2d4cf9fe8b24b5d045b75ebee6ae39b321c407361df985bfa6be9de4c1194042ba1c19d97c8d547d077ab3e80c421a2d64380c25b17618c9aad874e
   languageName: node
   linkType: hard
 
@@ -735,6 +779,13 @@ __metadata:
   version: 1.0.4
   resolution: "clone@npm:1.0.4"
   checksum: d06418b7335897209e77bdd430d04f882189582e67bd1f75a04565f3f07f5b3f119a9d670c943b6697d0afb100f03b866b3b8a1f91d4d02d72c4ecf2bb64b5dd
+  languageName: node
+  linkType: hard
+
+"cluster-key-slot@npm:1.1.0":
+  version: 1.1.0
+  resolution: "cluster-key-slot@npm:1.1.0"
+  checksum: fc953c75209b1ef9088081bab4e40a0b2586491c974ab93460569c014515ca5a2e31c043f185285e177007162fc353d07836d98f570c171dbe055775430e495b
   languageName: node
   linkType: hard
 
@@ -1336,6 +1387,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"generic-pool@npm:3.8.2":
+  version: 3.8.2
+  resolution: "generic-pool@npm:3.8.2"
+  checksum: f549077d90265e5e4d32a2410205b357ec61cf73d17861f1013637984390e09fe7bf537129a2c6ed30ae57662a57c8d54194f80046408d3349836330f422dbde
+  languageName: node
+  linkType: hard
+
 "get-caller-file@npm:^2.0.5":
   version: 2.0.5
   resolution: "get-caller-file@npm:2.0.5"
@@ -1694,15 +1752,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"link-shortener@workspace:.":
+"linkify@workspace:.":
   version: 0.0.0-use.local
-  resolution: "link-shortener@workspace:."
+  resolution: "linkify@workspace:."
   dependencies:
     "@popperjs/core": ^2.11.5
+    "@redis/client": ^1.1.0
+    "@sentry/browser": ^7.2.0
     "@sentry/node": ^7.2.0
+    "@sentry/tracing": ^7.2.0
     "@sveltejs/adapter-auto": next
     "@sveltejs/adapter-node": next
     "@sveltejs/kit": next
+    "@types/bootstrap": ^5.1.12
     "@types/config": ^0.0.41
     "@types/inquirer": ^8.2.1
     "@types/pg": ^8.6.5
@@ -3317,17 +3379,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"yallist@npm:4.0.0, yallist@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "yallist@npm:4.0.0"
+  checksum: 343617202af32df2a15a3be36a5a8c0c8545208f3d3dfbc6bb7c3e3b7e8c6f8e7485432e4f3b88da3031a6e20afa7c711eded32ddfb122896ac5d914e75848d5
+  languageName: node
+  linkType: hard
+
 "yallist@npm:^3.0.0, yallist@npm:^3.1.1":
   version: 3.1.1
   resolution: "yallist@npm:3.1.1"
   checksum: 48f7bb00dc19fc635a13a39fe547f527b10c9290e7b3e836b9a8f1ca04d4d342e85714416b3c2ab74949c9c66f9cebb0473e6bc353b79035356103b47641285d
-  languageName: node
-  linkType: hard
-
-"yallist@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "yallist@npm:4.0.0"
-  checksum: 343617202af32df2a15a3be36a5a8c0c8545208f3d3dfbc6bb7c3e3b7e8c6f8e7485432e4f3b88da3031a6e20afa7c711eded32ddfb122896ac5d914e75848d5
   languageName: node
   linkType: hard
 

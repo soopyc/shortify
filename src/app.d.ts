@@ -6,7 +6,8 @@ declare namespace App {
 	// interface Locals {}
 	// interface Platform {}
 	interface Session {
-        pkg: any
+        pkg: any,
+        sentryDSN: string | null
     }
 	// interface Stuff {}
 }
