@@ -1,0 +1,28 @@
+// caching pseudocode
+
+// caching.rs or something
+#[cfg(feature = "caching")]
+function cache_get(key) -> Optional<url>:
+    let d = redis_get(key);
+    match d {
+        Hit(k) {
+            log.debug!("[HIT] Cache hit");
+            return k;
+        },
+        Miss() {
+            log.debug!("[MIS] Cache miss.");
+            return None;
+        }
+    }
+
+function cache_get(_) -> Optional<url>:
+    log.debug!("[MIS] Cache feature not enabled.")
+    None
+
+function redis_get(key) -> Optional<url>:
+    redis_client.get(key)
+
+// routes/get.rs
+function get_link(...):
+    #[rest]
+    match 
