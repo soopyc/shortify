@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { PUB_GIT_REPO } from '$env/static/public';
 
-	export let app_color: String;
+	export let app_color: String = "#000000";
 </script>
 
 <div class="nav">
