@@ -1,13 +1,21 @@
 const colors = [
-    '#90f1ef',
-    '#ffef9f',
-    '#f2befc',
-    '#c1fba4',
-    '#7bf1a8',
     '#ebadd4',
     '#ffafc5',
+    '#f2befc',
+    '#f1c0f5',
+    '#e0c6ff',
+    '#fdcbdb',
+    '#ffe0d7',
+    '#ead5e6',
+    '#f3e0ec',
+    '#ffef9f',
+    '#ffe593',
     '#cafed6',
-    '#d2fdff'
+    '#c1fba4',
+    '#b5e587',
+    '#7bf1a8',
+    '#90f1ef',
+    '#d2fdff',
 ];
 
 export async function load() {
