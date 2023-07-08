@@ -1,0 +1,15 @@
+#e0c6ff, #000000
+#f1c0f5, #000000
+#fdcbdb, #000000
+#ffe0d7, #000000
+#ffe593, #000000
+
+#83a6e9, #000000
+#96b8fd, #000000
+#fdcbdb, #000000
+#b5e587, #000000
+#a2d275, #000000
+
+#f3e0ec, #ead5e6, #f2befc, #ca9ce1, #685f74
+#90f1ef, #ffef9f, #f2befc, #c1fba4, #7bf1a8
+#ebadd4, #ffafc5, #cafed6, #d2fdff
