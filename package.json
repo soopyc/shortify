@@ -9,7 +9,8 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"release": "standard-version"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
@@ -23,6 +24,7 @@
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.10.1",
 		"prisma": "^4.16.2",
+		"standard-version": "^9.5.0",
 		"svelte": "^4.0.0",
 		"svelte-check": "^3.4.3",
 		"tslib": "^2.4.1",
@@ -44,27 +46,31 @@
 		"types": [
 			{
 				"type": "feat",
-				"section": "Features"
+				"section": "Features ✨"
 			},
 			{
 				"type": "fix",
-				"section": "Bug Fixes"
+				"section": "Bug Fixes 🐛"
 			},
 			{
 				"type": "component",
 				"section": "Components"
 			},
 			{
+				"type": "docs",
+				"section": "Documentation 📖"
+			},
+			{
 				"type": "prisma",
-				"section": "Prisma Schema"
+				"section": "Prisma Schema 🖧"
 			},
 			{
 				"type": "util",
-				"section": "Utilities"
+				"section": "Utilities 🔨"
 			},
 			{
 				"type": "deps",
-				"section": "Dependencies"
+				"section": "Dependencies 📦"
 			},
 			{
 				"type": "chore",
