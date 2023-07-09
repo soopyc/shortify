@@ -24,6 +24,19 @@
 </div>
 
 <style>
+	:global(a) {
+		--link: #2b81e4;
+		text-decoration: none;
+		color: var(--link);
+		transition-property: background-color color;
+		transition-duration: 0.125s;
+	}
+
+	:global(a:hover) {
+		color: #fff;
+		background-color: var(--link);
+	}
+
     hr {
         all: revert;
     }
