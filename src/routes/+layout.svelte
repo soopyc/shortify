@@ -26,7 +26,6 @@
 <style>
 	:global(a) {
 		--link: #2b81e4;
-		text-decoration: none;
 		color: var(--link);
 		transition-property: background-color color;
 		transition-duration: 0.125s;
