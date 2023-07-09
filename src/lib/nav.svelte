@@ -8,7 +8,7 @@
 <div class="nav" style="--app-color: {app_color}">
 	<div>
 		<a id="app_name" href="/">Linkify</a>
-		<!-- svelte-ignore missing-declaration -->
+		<!-- svelte-ignore missing-declaration --> <!--This is required for replacements-->
 		<a id="app_version" href="{PUB_GIT_REPO}/commit/{APP_COMMIT}">{APP_VER}</a>
 	</div>
 
@@ -39,12 +39,16 @@
 		transition-duration: 0.125s;
 		text-decoration: none;
 		background-color: var(--app-color);
+		border-width: 2px;
+		border-style: solid;
+		border-color: #00000000;
 		color: #000;
 		padding: 0 0.5em 0;
 	}
 
-	#app_name:hover {
-		background-color: #00000000
+	#app_name:hover, #app_name:focus {
+		background-color: #00000000;
+		border-color: var(--app-color);
 	}
 
 	#app_version {
@@ -54,7 +58,7 @@
 		font-size: 1rem;
 	}
 
-	#app_version:hover {
+	#app_version:hover, #app_version:focus {
 		background-color: gray;
 		color: white;
 	}

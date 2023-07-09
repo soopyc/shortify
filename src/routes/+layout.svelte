@@ -31,7 +31,7 @@
 		transition-duration: 0.125s;
 	}
 
-	:global(a:hover) {
+	:global(a:hover, a:focus) {
 		color: #fff;
 		background-color: var(--link);
 	}
