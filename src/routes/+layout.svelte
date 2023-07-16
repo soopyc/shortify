@@ -6,7 +6,9 @@
     export let data;
 </script>
 
-<Nav app_color={data.app_color} />
+<div id="nav">
+	<Nav app_color={data.app_color} />
+</div>
 
 <div class="main">
 	<slot />
@@ -39,6 +41,10 @@
     hr {
         all: revert;
     }
+
+	#nav {
+		padding-bottom: 1rem;
+	}
 
 	.main,
 	.footer {
