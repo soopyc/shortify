@@ -4,10 +4,11 @@ const colors = [
     '#f2befc',
     '#f1c0f5',
     '#e0c6ff',
-    '#fdcbdb',
-    '#ffe0d7',
     '#ead5e6',
     '#f3e0ec',
+    '#fdcbdb',
+    '#ffe0d7',
+    '#fedcba',
     '#ffef9f',
     '#ffe593',
     '#cafed6',
@@ -16,6 +17,8 @@ const colors = [
     '#7bf1a8',
     '#90f1ef',
     '#d2fdff',
+    '#abcdef',
+    '#bacafe',
 ];
 
 export async function load() {
