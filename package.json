@@ -1,87 +1,81 @@
 {
-	"name": "linkify",
-	"version": "0.0.2-alpha.0",
-	"private": true,
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write .",
-		"release": "standard-version"
-	},
-	"devDependencies": {
-		"@sveltejs/adapter-auto": "^2.1.0",
-		"@sveltejs/kit": "^1.22.1",
-		"@types/node": "^20.4.1",
-		"@typescript-eslint/eslint-plugin": "^5.61.0",
-		"@typescript-eslint/parser": "^5.61.0",
-		"eslint": "^8.44.0",
-		"eslint-config-prettier": "^8.8.0",
-		"eslint-plugin-svelte": "^2.32.2",
-		"prettier": "^2.8.8",
-		"prettier-plugin-svelte": "^2.10.1",
-		"prisma": "^4.16.2",
-		"standard-version": "^9.5.0",
-		"svelte": "^4.0.5",
-		"svelte-check": "^3.4.5",
-		"tslib": "^2.6.0",
-		"typescript": "^5.1.6",
-		"vite": "^4.4.2"
-	},
-	"type": "module",
-	"volta": {
-		"node": "20.4.0"
-	},
-	"dependencies": {
-		"@prisma/client": "4.16.2",
-		"dotenv": "^16.3.1"
-	},
-	"optionalDependencies": {
-		"redis": "^4.6.7"
-	},
-	"standard-version": {
-		"types": [
-			{
-				"type": "feat",
-				"section": "Features ✨"
-			},
-			{
-				"type": "fix",
-				"section": "Bug Fixes 🐛"
-			},
-			{
-				"type": "component",
-				"section": "Components"
-			},
-			{
-				"type": "docs",
-				"section": "Documentation 📖"
-			},
-			{
-				"type": "prisma",
-				"section": "Prisma Schema 🖧"
-			},
-			{
-				"type": "util",
-				"section": "Utilities 🔨"
-			},
-			{
-				"type": "deps",
-				"section": "Dependencies 📦"
-			},
-			{
-				"type": "chore",
-				"hidden": true
-			}
-		],
-		"commitUrlFormat": "https://patchy.soopy.moe/cassie/linkify/commit/{{hash}}",
-		"compareUrlFormat": "https://patchy.soopy.moe/cassie/linkify/compare/{{previousTag}}...{{currentTag}}",
-		"issueUrlFormat": "https://patchy.soopy.moe/cassie/linkify/issues/{{id}}",
-		"releaseCommitMessageFormat": "chore(release): release {{currentTag}}",
-		"prerelease": "alpha",
-		"sign": true
-	}
+    "name": "linkify",
+    "version": "0.0.3-alpha.0",
+    "private": true,
+    "scripts": {
+        "dev": "vite dev",
+        "build": "vite build",
+        "preview": "vite preview",
+        "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+        "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+        "lint": "eslint ."
+    },
+    "devDependencies": {
+        "@sveltejs/adapter-auto": "^2.0.0",
+        "@sveltejs/adapter-node": "^1.3.1",
+        "@sveltejs/kit": "^1.20.4",
+        "@types/primer__octicons": "^19.6.1",
+        "@typescript-eslint/eslint-plugin": "^6.0.0",
+        "@typescript-eslint/parser": "^6.0.0",
+        "eslint": "^8.28.0",
+        "eslint-plugin-svelte": "^2.30.0",
+        "less": "^4.2.0",
+        "prisma": "^5.4.1",
+        "svelte": "^4.0.5",
+        "svelte-check": "^3.4.3",
+        "tslib": "^2.4.1",
+        "typescript": "^5.0.0",
+        "vite": "^4.4.2"
+    },
+    "type": "module",
+    "volta": {
+        "node": "18.18.0"
+    },
+    "dependencies": {
+        "@fontsource/comic-mono": "^5.0.7",
+        "@primer/octicons": "^19.8.0",
+        "@prisma/client": "5.4.1"
+    },
+    "standard-version": {
+        "types": [
+            {
+                "type": "feat",
+                "section": "Features ✨"
+            },
+            {
+                "type": "fix",
+                "section": "Bug Fixes 🐛🔨"
+            },
+            {
+                "type": "component",
+                "section": "Components"
+            },
+            {
+                "type": "docs",
+                "section": "Documentation 📖"
+            },
+            {
+                "type": "prisma",
+                "section": "Prisma Schema 🖧"
+            },
+            {
+                "type": "util",
+                "section": "Utilities 🔨"
+            },
+            {
+                "type": "deps",
+                "section": "Dependencies 📦"
+            },
+            {
+                "type": "chore",
+                "hidden": true
+            }
+        ],
+        "commitUrlFormat": "https://patchy.soopy.moe/cassie/linkify/commit/{{hash}}",
+        "compareUrlFormat": "https://patchy.soopy.moe/cassie/linkify/compare/{{previousTag}}...{{currentTag}}",
+        "issueUrlFormat": "https://patchy.soopy.moe/cassie/linkify/issues/{{id}}",
+        "releaseCommitMessageFormat": "chore(release): release {{currentTag}}",
+        "prerelease": "alpha",
+        "sign": true
+    }
 }

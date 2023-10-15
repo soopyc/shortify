@@ -1,66 +1,48 @@
-<script>
-    import Nav from '$lib/nav.svelte';
-	import { trueish } from '$lib/trueish';
-	import {PUB_ENABLE_JOHN, PUB_DOMAIN} from '$env/static/public';
+<script lang="ts">
+    import Nav from "$lib/components/nav.svelte";
+    import { trueish } from "$lib/trueish";
+    import { env } from "$env/dynamic/public";
 
-    export let data;
+    import '@fontsource/comic-mono/400.css';
+    import '@fontsource/comic-mono/700.css';
+    import '@primer/octicons/build/build.css'
+    import './app.less';
 </script>
 
-<div id="nav">
-	<Nav app_color={data.app_color} />
+<div id="main">
+    <Nav />
+
+    <slot />
 </div>
 
-<div class="main">
-	<slot />
+<div>
+    {#if trueish(env.PUB_ENABLE_JOHN) && env.PUB_DOMAIN}
+        <iframe
+                id="john"
+                src="https://john.citrons.xyz/embed?ref={env.PUB_DOMAIN}"
+                title="johnvertisement"
+        />
+    {/if}
 </div>
 
-<div class="footer">
-    <hr />
-	{#if trueish(PUB_ENABLE_JOHN) && PUB_DOMAIN}
-		<iframe
-			class="john"
-			src="https://john.citrons.xyz/embed?ref={PUB_DOMAIN}"
-			title="johnvertisement"
-		/>
-	{/if}
-</div>
-
-<style>
-	:global(a) {
-		--link: #2b81e4;
-		color: var(--link);
-		transition-property: background-color color;
-		transition-duration: 0.125s;
-	}
-
-	:global(a:hover, a:focus) {
-		color: #fff;
-		background-color: var(--link);
-	}
-
-    hr {
-        all: revert;
+<style lang="less">
+    :root {
+        font-family: 'Comic Mono', monospace;
     }
 
-	#nav {
-		padding-bottom: 1rem;
-	}
+    #main {
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-	.main,
-	.footer {
-		max-width: 38rem;
-		padding: 0 0 0 0;
-		margin: auto;
-		font-family: monospace;
-	}
-
-	.john {
-		margin-left: auto;
-		display: block;
-		margin-right: auto;
-		max-width: 732px;
-		width: 100%;
-		height: 94px;
-		border: none;
-	}
+    #john {
+        margin-left: auto;
+        display: block;
+        margin-right: auto;
+        max-width: 732px;
+        width: 100%;
+        height: 94px;
+        border: none;
+    }
 </style>

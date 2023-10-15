@@ -11,8 +11,10 @@ datasource db {
 }
 
 model Links {
-  id           String  @unique
-  deleteToken  String  @unique
-  creationDate DateTime
+  id           String   @unique
+  updateToken  String   @unique
+  creationDate DateTime @default(now())
+  expiryDate   DateTime
   destination  String
+  shortlink    String   @unique
 }

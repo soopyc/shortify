@@ -9,7 +9,6 @@ declare global {
 	}
 
 	declare const APP_VER: string;
-	declare const APP_COMMIT: string;
 }
 
 export {};
