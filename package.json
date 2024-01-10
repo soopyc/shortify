@@ -43,47 +43,5 @@
 	"optionalDependencies": {
 		"id128": "^1.6.6",
 		"nanoid": "^5.0.2"
-	},
-	"standard-version": {
-		"types": [
-			{
-				"type": "feat",
-				"section": "Features ✨"
-			},
-			{
-				"type": "fix",
-				"section": "Bug Fixes 🐛🔨"
-			},
-			{
-				"type": "component",
-				"section": "Components"
-			},
-			{
-				"type": "docs",
-				"section": "Documentation 📖"
-			},
-			{
-				"type": "orm",
-				"section": "Database Schema 🖧"
-			},
-			{
-				"type": "util",
-				"section": "Utilities 🔨"
-			},
-			{
-				"type": "deps",
-				"section": "Dependencies 📦"
-			},
-			{
-				"type": "chore",
-				"hidden": true
-			}
-		],
-		"commitUrlFormat": "https://patchy.soopy.moe/cassie/linkify/commit/{{hash}}",
-		"compareUrlFormat": "https://patchy.soopy.moe/cassie/linkify/compare/{{previousTag}}...{{currentTag}}",
-		"issueUrlFormat": "https://patchy.soopy.moe/cassie/linkify/issues/{{id}}",
-		"releaseCommitMessageFormat": "chore(release): release {{currentTag}}",
-		"prerelease": "alpha",
-		"sign": true
 	}
 }
