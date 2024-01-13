@@ -1,0 +1,35 @@
+<script lang="ts">
+	import octicons from "@primer/octicons";
+	import { fade } from "svelte/transition";
+	import type { ErrorType } from "$lib/sharedTypes";
+
+	export let error: ErrorType;
+</script>
+
+<div id="error" transition:fade={{ duration: 150 }}>
+	<span id="error_icon">{@html octicons["alert-fill"].toSVG()}</span>
+	<span>
+		{#if error?.name == "TypeError"}
+			The entered string is not a valid URL.
+		{:else}
+			An unknown error occurred. <br>
+			{error}
+		{/if}
+	</span>
+</div>
+
+<style lang="less">
+	#error {
+		color: var(--red);
+		margin-bottom: 10px;
+		display: grid;
+		grid-template-columns: 1rem auto;	
+		align-items: center;
+		column-gap: 0.5em;
+
+		#error_icon {
+			align-self: flex-end;
+			justify-self: end;
+		}
+	}
+</style>

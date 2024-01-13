@@ -1,6 +1,8 @@
 <script lang="ts">
 	import octicons from "@primer/octicons";
 	import { fade, fly } from "svelte/transition";
+	import ErrorDisplay from "$lib/components/errorDisplay.svelte";
+	import type {ErrorType} from "$lib/sharedTypes"
 
 	enum ShortlinkModes {
 		Random = "random",
@@ -71,16 +73,7 @@
 </div>
 
 {#if error}
-	<div id="error" transition:fade={{ duration: 250 }}>
-		<span id="error_icon">{@html octicons["alert-fill"].toSVG()}</span>
-		<span>
-			{#if error?.name == "TypeError"}
-				The entered string is not a valid URL.
-			{:else}
-				An unknown error occurred: {error}
-			{/if}
-		</span>
-	</div>
+	<ErrorDisplay error={error} />
 {/if}
 
 {#if showAdvanced}
@@ -122,21 +115,6 @@
 			padding: 0 10px;
 			box-shadow: none;
 			overflow-y: hidden;
-		}
-	}
-
-	#error {
-		color: var(--red);
-		margin-bottom: 10px;
-		display: grid;
-		grid-template-columns: 1rem auto;
-		align-items: center;
-		column-gap: 5%;
-
-		#error_icon {
-			// TODO: figure out how to center this
-			align-self: flex-end;
-			justify-self: end;
 		}
 	}
 
