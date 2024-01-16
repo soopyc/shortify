@@ -1,3 +1,4 @@
+# sveltekit + /(node)?js/ stuff
 .DS_Store
 node_modules
 /build
@@ -8,3 +9,6 @@ node_modules
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# nix stuff
+result
