@@ -12,8 +12,9 @@ indent_style = space
 [*.md]
 indent_size = 2
 
-[utils/*]
+[{utils/*,*.lock*}]
 indent_style = unset
+indent_size = unset
 
 # FIXME: remove this once alejandra finally lets me change spaces to tabs
 [*.nix]

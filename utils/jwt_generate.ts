@@ -27,20 +27,20 @@ OPTIONS
       -s, --symmetric: generate a symmetric secret (default)
      -S, --asymmetric: generate an asymmetric key pair
 
-         -o --outfile: the file to output to defaults to 
+         -o --outfile: the file to output to defaults to
                        "jwt_\${KEYTYPE}.key". pass "-" to shove the
                        key to stderr instead.
 
            -t, --type: **${colors.brightYellow("this is case sensitive")}**
                        the key type to generate. check JWT docs for
-                       all available types. 
+                       all available types.
 
   -f, --export-format: export format to use (one of [jwk, pkcs])
-                       note: for symmetric keys, only jwk can be 
+                       note: for symmetric keys, only jwk can be
                        used.
 
 KEY GENERATION OPTIONS
-       --curve, --crv: [ec] the curve type to use. 
+       --curve, --crv: [ec] the curve type to use.
          -l, --modlen: [rsa] modulus length for the rsa key
 
                                                           LINKIFY(1)`;
