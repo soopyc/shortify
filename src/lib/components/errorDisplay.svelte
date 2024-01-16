@@ -23,7 +23,7 @@
 		color: var(--red);
 		margin-bottom: 10px;
 		display: grid;
-		grid-template-columns: 1rem auto;	
+		grid-template-columns: 1rem auto;
 		align-items: center;
 		column-gap: 0.5em;
 
