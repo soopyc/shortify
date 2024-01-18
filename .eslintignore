@@ -3,3 +3,12 @@
 pnpm-lock.yaml
 package-lock.json
 yarn.lock
+
+.env
+.svelte-kit/
+node_modules/
+build/
+result
+utils/*
+
+/*.js
