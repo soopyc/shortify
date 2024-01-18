@@ -26,8 +26,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-<!-- ### 💥 BREAKING CHANGES 💥
 ### ✨ Features
+
+- replaced @primer/octicons with unplugin-icons, which reduces bundle size (cf42928)
+
+<!-- ### 💥 BREAKING CHANGES 💥
 ### 🐛 Bug Fixes
 ### 🧩 Components
 ### 📖 Documentation
@@ -39,8 +42,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### 💥 BREAKING CHANGES 💥
 
--	Prisma is dropped in favor of Drizzle ORM. In the unlikely event that you already have a server setup, you will
-	likely need to purge everything in your db.
+- Prisma is dropped in favor of Drizzle ORM. In the unlikely event that you already have a server setup, you will
+  likely need to purge everything in your db.
 
 ### 📦 Dependencies
 
@@ -66,8 +69,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - added an intro component (19a85ec)
 - added the navLink component (caacd77)
 - **nav**
-	- tweak style (7622ed8)
-	- set default app_color (798cd54)
+  - tweak style (7622ed8)
+  - set default app_color (798cd54)
 
 ### 📦 Dependencies
 
