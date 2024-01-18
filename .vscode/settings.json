@@ -4,5 +4,7 @@
 	"deno.unstable": false,
 	"deno.enablePaths": [
 		"./utils"
-	]
+	],
+	"eslint.enable": true,
+	"xo.enable": false,
 }
