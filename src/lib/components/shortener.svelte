@@ -1,8 +1,13 @@
 <script lang="ts">
-	import octicons from "@primer/octicons";
 	import { fade, fly } from "svelte/transition";
 	import ErrorDisplay from "$lib/components/errorDisplay.svelte";
-	import type {ErrorType} from "$lib/sharedTypes"
+	import type { ErrorType } from "$lib/sharedTypes";
+
+	// Icons
+	// const IconSpinner = await import("~icons/ph/spinner");
+	import IconSpinner from "~icons/ph/spinner";
+	import IconMenu from "~icons/octicon/three-bars-16";
+	import IconX from "~icons/octicon/x-12";
 
 	enum ShortlinkModes {
 		Random = "random",
@@ -19,7 +24,7 @@
 	export let showAdvanced = false;
 	export let shortenUrl = "";
 	export let processing: boolean = false;
-	export let error: Error | TypeError | undefined = undefined;
+	export let error: ErrorType = undefined;
 
 	export function toggleAdvanced() {
 		showAdvanced = !showAdvanced;
@@ -87,6 +92,17 @@
 {/if}
 
 <style lang="less">
+	button {
+		border: unset;
+	}
+
+	input {
+		padding: 0 10px 0;
+		border-color: inherit;
+		border-width: 2px;
+		border-style: solid;
+	}
+
 	#main {
 		display: flex;
 		height: 2.5rem;

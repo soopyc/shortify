@@ -5,7 +5,6 @@
 
     import '@fontsource/comic-mono/400.css';
     import '@fontsource/comic-mono/700.css';
-    import '@primer/octicons/build/build.css'
     import './app.less';
 </script>
 
