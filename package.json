@@ -3,21 +3,29 @@
 	"version": "0.0.3-alpha.1",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "NODE_ENV=development vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "eslint .",
-		"clean": "rm .svelte-kit -fr && svelte-kit sync"
+		"clean": "rm .svelte-kit -fr && svelte-kit sync",
+		"refresh": "svelte-kit sync"
+	},
+	"dependencies": {
+		"@fontsource/comic-mono": "^5.0.7",
+		"@prisma/client": "5.4.1",
+		"drizzle-orm": "^0.29.3",
+		"unplugin-icons": "^0.18.2"
 	},
 	"devDependencies": {
+		"@iconify-json/octicon": "^1.1.52",
+		"@iconify-json/ph": "^1.1.9",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/adapter-node": "^2.0.0",
 		"@sveltejs/kit": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"@types/pg": "^8.10.9",
-		"@types/primer__octicons": "^19.6.1",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
 		"@typescript-eslint/parser": "^6.0.0",
 		"drizzle-kit": "^0.20.10",
@@ -32,13 +40,7 @@
 	},
 	"type": "module",
 	"volta": {
-		"node": "18.18.0"
-	},
-	"dependencies": {
-		"@fontsource/comic-mono": "^5.0.7",
-		"@primer/octicons": "^19.8.0",
-		"@prisma/client": "5.4.1",
-		"drizzle-orm": "^0.29.3"
+		"node": "20.11.0"
 	},
 	"optionalDependencies": {
 		"id128": "^1.6.6",

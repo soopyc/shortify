@@ -47,9 +47,9 @@
 	<!-- Figure out how to unjs this later -->
 	<button on:click={toggleAdvanced}>
 		{#if !showAdvanced}
-			{@html octicons["three-bars"].toSVG()}
+			<IconMenu />
 		{:else}
-			{@html octicons["x"].toSVG()}
+			<IconX />
 		{/if}
 	</button>
 
@@ -65,7 +65,7 @@
 
 	<button id="shorten" on:click={shorten} disabled={processing}>
 		{#if processing}
-			<span class="spinner">{@html octicons["issue-draft"].toSVG()}</span>
+			<span class="spinner"><IconSpinner /></span>
 		{:else}
 			Shorten!
 		{/if}
@@ -73,7 +73,7 @@
 </div>
 
 {#if error}
-	<ErrorDisplay error={error} />
+	<ErrorDisplay {error} />
 {/if}
 
 {#if showAdvanced}
