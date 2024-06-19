@@ -1,6 +1,6 @@
 # Shortify
 
-Sleek link shortening service. No analytics included!
+Sleek self-hostable link shortening service. No analytics included!
 
 ## Deployment
 

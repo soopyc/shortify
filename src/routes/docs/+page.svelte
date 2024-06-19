@@ -1,16 +1,16 @@
 <script>
 	import { page } from "$app/stores";
+	import { makeTitle } from "$lib";
 </script>
 
 <svelte:head>
-	<title>API Documentation | Shortify</title>
+	<title>{makeTitle("API Documentation")}</title>
 </svelte:head>
 
 <!-- we will move to a versioned api sooner or later, but this is what we have for now. -->
 <h1>API Documentation</h1>
 <div>
 	<p>Base URL: <code class="copy">{$page.url.protocol + "//" + $page.url.host}</code></p>
-	<p>You did not read that wrong, there is no <code>/api/v1</code> stuff</p>
 </div>
 
 <div>
@@ -18,7 +18,10 @@
 	<p>You will get an HTML render of the main page.</p>
 </div>
 
-<h2><code>GET /check</code></h2>
+<div>
+	<h2 id="post-S"><code>POST /</code></h2>
+
+</div>
 
 <style lang="less">
 	.copy {

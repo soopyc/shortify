@@ -9,21 +9,30 @@
 </a>
 
 <style lang="less">
+	@import "$lib/globals";
+
 	a {
 		padding-top: 3px;
 		padding-bottom: 1px;
 		transition-property: padding, color, background-color;
 		transition-duration: 250ms;
 
+		// TODO: decide on whether we want this or not
+		// @media screen and (max-width: @mobile-breakpoint) {
+		@media (prefers-reduced-motion) {
+			padding-right: 10px;
+		}
+
 		&:visited,
 		&:active,
 		& {
-			color: var(--primary);
+			color: unset; // var(--primary);
 		}
 		&:hover,
 		&:focus,
 		&.current {
-			padding: 3px 10px 3px;
+			padding-left: 10px;
+			padding-right: 10px;
 			color: var(--secondary);
 			background-color: var(--primary);
 		}

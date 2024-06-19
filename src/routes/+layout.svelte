@@ -9,19 +9,21 @@
 </script>
 
 <div id="main">
-    <Nav />
-
-    <slot />
-</div>
-
-<div>
-    {#if trueish(env.PUB_ENABLE_JOHN) && env.PUB_DOMAIN}
-        <iframe
-                id="john"
-                src="https://john.citrons.xyz/embed?ref={env.PUB_DOMAIN}"
-                title="johnvertisement"
-        />
-    {/if}
+	<div>
+		<Nav />
+		<slot />
+	</div>
+	
+	<div>
+		{#if trueish(env.PUB_ENABLE_JOHN) && env.PUB_DOMAIN}
+			<hr />
+			<iframe
+					id="john"
+					src="https://john.citrons.xyz/embed?ref={env.PUB_DOMAIN}"
+					title="johnvertisement"
+			/>
+		{/if}
+	</div>
 </div>
 
 <style lang="less">
@@ -34,6 +36,10 @@
         margin-left: auto;
         margin-right: auto;
     }
+
+	hr {
+		max-width: 110%;
+	}
 
     #john {
         margin-left: auto;

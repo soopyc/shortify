@@ -17,6 +17,7 @@
           packages = with pkgs; [
             nodejs-slim_22
             pnpm_9
+            nrr
           ];
         };
         packages.default = pkgs.hello;

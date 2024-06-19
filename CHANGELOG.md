@@ -9,8 +9,6 @@
 ### 🛠️ Utilities
 ### 📦 Dependencies  -->
 
--->
-
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -30,13 +28,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - replaced @primer/octicons with unplugin-icons, which reduces bundle size (cf42928)
 
+### 📦 Dependencies
+
+- added pino for logging (cd8d27e)
+
 <!-- ### 💥 BREAKING CHANGES 💥
 ### 🐛 Bug Fixes
 ### 🧩 Components
 ### 📖 Documentation
 ### 🖧 Database Schema
 ### 🛠️ Utilities
-### 📦 Dependencies  -->
+-->
 
 ## [v0.0.3-alpha.1]
 

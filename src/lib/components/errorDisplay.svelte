@@ -1,7 +1,7 @@
 <script lang="ts">
 	import IconAlertFill from "~icons/octicon/alert-fill-16";
 	import { fade } from "svelte/transition";
-	import type { ErrorType } from "$lib/sharedTypes";
+	import type { ErrorType } from "$lib/types";
 
 	export let error: ErrorType;
 </script>
@@ -28,8 +28,8 @@
 		column-gap: 0.5em;
 
 		#error_icon {
-			align-self: flex-end;
-			justify-self: end;
+			align-self: center;
+			justify-self: center;
 		}
 	}
 </style>

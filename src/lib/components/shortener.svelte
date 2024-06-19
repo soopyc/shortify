@@ -1,101 +1,109 @@
 <script lang="ts">
 	import { fade, fly } from "svelte/transition";
+	import { UnimplementedError } from "$lib/errors";
+	import {
+		type ErrorType,
+		type AdvancedConfiguration,
+		ShortlinkModes,
+	} from "$lib/types";
+
+	// Components
 	import ErrorDisplay from "$lib/components/errorDisplay.svelte";
-	import type { ErrorType } from "$lib/sharedTypes";
 
 	// Icons
-	// const IconSpinner = await import("~icons/ph/spinner");
-	import IconSpinner from "~icons/ph/spinner";
+	import IconSpinner from "~icons/gg/spinner";
 	import IconMenu from "~icons/octicon/three-bars-16";
 	import IconX from "~icons/octicon/x-12";
-
-	enum ShortlinkModes {
-		Random = "random",
-		Manual = "manual",
-	}
-
-	interface AdvancedInterface {
-		shortlinkMode: ShortlinkModes;
-	}
-
-	export let advancedConfig: AdvancedInterface = {
-		shortlinkMode: ShortlinkModes.Random,
-	};
-	export let showAdvanced = false;
-	export let shortenUrl = "";
-	export let processing: boolean = false;
-	export let error: ErrorType = undefined;
+	import IconInfo from "~icons/octicon/info-16";
 
 	export function toggleAdvanced() {
 		showAdvanced = !showAdvanced;
+	}
+
+	export function prependProtocol() {
+		if (inputUrl.match(/^(?!\w+:).+$/)) {
+			inputUrl = "https://" + inputUrl;
+		}
 	}
 
 	export async function shorten() {
 		processing = true;
 		error = undefined;
 		try {
-			const _ = new URL(shortenUrl);
+			const _ = new URL(inputUrl);
 			// arbitrary delay
 			await new Promise((resolve) => {
 				setTimeout(() => resolve(null), 2500);
 			});
-			throw new Error("error");
+			throw new UnimplementedError();
 		} catch (e: any) {
 			error = e;
 		} finally {
 			processing = false;
 		}
 	}
+
+	// State
+	export const advancedConfig: AdvancedConfiguration = {
+		shortlinkMode: ShortlinkModes.Random,
+	}; // TODO
+	export let showAdvanced = false;
+	export let inputUrl = "";
+	export let processing: boolean = false;
+	export let error: ErrorType = undefined;
 </script>
 
-<div id="main">
-	<!-- Figure out how to unjs this later -->
-	<button on:click={toggleAdvanced}>
-		{#if !showAdvanced}
-			<IconMenu />
-		{:else}
-			<IconX />
-		{/if}
-	</button>
-
-	<input
-		type="text"
-		placeholder="Enter or paste in a URL..."
-		contenteditable="true"
-		on:keydown={() => {
-			error = undefined;
-		}}
-		bind:value={shortenUrl}
-	/>
-
-	<button id="shorten" on:click={shorten} disabled={processing}>
-		{#if processing}
-			<span class="spinner"><IconSpinner /></span>
-		{:else}
-			Shorten!
-		{/if}
-	</button>
-</div>
-
-{#if error}
-	<ErrorDisplay {error} />
-{/if}
-
-{#if showAdvanced}
-	<div
-		id="advanced"
-		in:fade={{ duration: 200 }}
-		out:fly={{ x: -10, duration: 300 }}
-	>
-		<h2>Advanced options</h2>
+<form id="shortener" method="post" on:submit|preventDefault={shorten}>
+	<!-- TODO: Figure out how to unjs this later -->
+	<div id="content">
+		<button
+			on:click={toggleAdvanced}
+			type="button"
+			title="Show advanced settings"
+		>
+			{#if !showAdvanced}
+				<IconMenu />
+			{:else}
+				<IconX />
+			{/if}
+		</button>
+		<input
+			type="url"
+			placeholder="Enter or paste in a URL..."
+			contenteditable="true"
+			disabled={processing}
+			on:keydown={() => {
+				error = undefined;
+			}}
+			on:change={prependProtocol}
+			bind:value={inputUrl}
+		/>
+		<button id="shorten" disabled={processing} type="submit">
+			{#if processing}
+				<span class="spinner"><IconSpinner /></span>
+			{:else}
+				<span>Shorten!</span>
+			{/if}
+		</button>
 	</div>
-{/if}
+
+	{#if error}
+		<ErrorDisplay {error} />
+	{/if}
+
+	{#if showAdvanced}
+		<div
+			id="advanced"
+			in:fade={{ duration: 200 }}
+			out:fly={{ x: -10, duration: 300 }}
+		>
+			<h2>Advanced options</h2>
+			<p><IconInfo /> Information entered will not be saved if this is closed.</p>
+		</div>
+	{/if}
+</form>
 
 <style lang="less">
-	button {
-		border: unset;
-	}
-
 	input {
 		padding: 0 10px 0;
 		border-color: inherit;
@@ -103,7 +111,7 @@
 		border-style: solid;
 	}
 
-	#main {
+	#content {
 		display: flex;
 		height: 2.5rem;
 		margin-bottom: 1rem;
@@ -123,6 +131,15 @@
 
 		input {
 			flex-grow: 1;
+			color: var(--primary);
+			background-color: var(--secondary);
+			border-color: var(--primary);
+
+			&:disabled {
+				background-color: var(--secondary-muted);
+				border-color: var(--primary-muted);
+				cursor: not-allowed;
+			}
 		}
 
 		button {
