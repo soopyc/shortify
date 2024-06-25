@@ -1,0 +1,4 @@
+:root {
+	font-family: 'Roboto Mono', monospace;
+	--at-apply: text-black bg-white dark:text-white dark:bg-black;
+}
