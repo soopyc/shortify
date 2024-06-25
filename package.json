@@ -32,6 +32,7 @@
 		"drizzle-kit": "^0.22.7",
 		"eslint": "~8.56.0",
 		"eslint-plugin-svelte": "^2.41.0",
+		"globals": "^15.6.0",
 		"less": "^4.2.0",
 		"pino-dev": "^4.0.3",
 		"svelte": "^4.2.18",
