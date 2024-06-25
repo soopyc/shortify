@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    nrr.url = "github:ryanccn/nrr";
   };
 
   outputs = inputs @ {flake-parts, ...}:
@@ -11,13 +12,14 @@
       systems = ["x86_64-linux"]; # add more later
       perSystem = {
         pkgs,
+        inputs',
         ...
       }: {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             nodejs-slim_22
             pnpm_9
-            nrr
+            inputs'.nrr.packages.nrr
           ];
         };
         packages.default = pkgs.hello;
