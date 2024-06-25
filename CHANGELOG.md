@@ -23,14 +23,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 
 ## [Unreleased]
-<!-- ### 💥 BREAKING CHANGES 💥
+<!--
+### 💥 BREAKING CHANGES 💥
 ### ✨ Features
 ### 🐛 Bug Fixes
-### 🧩 Components
 ### 📖 Documentation
 ### 🖧 Database Schema
 ### 🛠️ Utilities
-### 📦 Dependencies  -->
+-->
+
+### 🧩 Components
+- removed essentially every overcomplicated component and modules (857ebc4)
+- overhauled design for navlink and nav (f77288c, 5c5be43)
+- added code (55085c4), heading (6578523) and link (5a58850)
+
+### 📦 Dependencies
+- bumped everything (81b5a2b)
+- cleaned up dependencies and add unocss (c373f29)
 
 ## [v0.0.3-alpha.2]
 
