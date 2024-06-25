@@ -1,6 +1,5 @@
 import { randomUUID } from "crypto";
 import { getLogger } from "$lib/server/logging";
-import { msgSplitMarker } from "$lib/types";
 import type { HandleServerError } from "@sveltejs/kit";
 
 export const logger = getLogger("hooks");
@@ -32,7 +31,7 @@ export const handleError: HandleServerError = ({ error, event, message, status }
 
 	return {
 		// we had to do this because we can't just use %sveltekit.error.id%... hopefully we can in the future
-		message: `Error ID: ${id}\nVersion: ${APP_VER}\n${msgSplitMarker}\n` + message,
+		message: `Error ID: ${id}\nVersion: ${APP_VER}\n` + message,
 		id,
 	};
 };
