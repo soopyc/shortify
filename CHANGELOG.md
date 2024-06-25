@@ -85,6 +85,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - upgraded dependencies (please see the following commit) (df3c1e7)
 
 [Unreleased]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.1...HEAD
-[v0.0.3-alpha.2]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.2...v0.0.3-alpha.1
-[v0.0.3-alpha.1]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.1...v0.0.3-alpha.0
-[v0.0.3-alpha.0]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.0...v0.0.2-alpha.0
+[v0.0.3-alpha.2]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.1...v0.0.3-alpha.2
+[v0.0.3-alpha.1]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.0...v0.0.3-alpha.1
+[v0.0.3-alpha.0]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.2-alpha.0...v0.0.3-alpha.0
