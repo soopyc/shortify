@@ -1,5 +1,7 @@
 import { sveltekit } from "@sveltejs/kit/vite";
 import { defineConfig } from "vite";
+import UnoCSS from "unocss/vite";
+import extractorSvelte from "@unocss/extractor-svelte";
 import Icons from "unplugin-icons/vite";
 import _package from "./package.json";
 
@@ -8,6 +10,11 @@ export default defineConfig({
 		target: "esnext"
 	},
 	plugins: [
+		UnoCSS({
+			extractors: [
+				extractorSvelte()
+			],
+		}),
 		sveltekit(),
 		Icons({
 			compiler: "svelte",
