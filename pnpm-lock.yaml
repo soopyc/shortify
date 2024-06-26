@@ -66,6 +66,9 @@ importers:
       '@unocss/vite':
         specifier: ^0.61.0
         version: 0.61.0(rollup@4.18.0)(vite@5.3.1(@types/node@20.14.5)(less@4.2.0))
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
       drizzle-kit:
         specifier: ^0.22.7
         version: 0.22.7(supports-color@9.4.0)
@@ -1343,6 +1346,10 @@ packages:
   doctrine@3.0.0:
     resolution: {integrity: sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==}
     engines: {node: '>=6.0.0'}
+
+  dotenv@16.4.5:
+    resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
+    engines: {node: '>=12'}
 
   drizzle-kit@0.22.7:
     resolution: {integrity: sha512-9THPCb2l1GPt7wxhws9LvTR0YG565ZlVgTuqGMwjs590Kch1pXu4GyjEArVijSF5m0OBj3qgdeKmuJXhKXgWFw==}
@@ -3804,6 +3811,8 @@ snapshots:
   doctrine@3.0.0:
     dependencies:
       esutils: 2.0.3
+
+  dotenv@16.4.5: {}
 
   drizzle-kit@0.22.7(supports-color@9.4.0):
     dependencies:
