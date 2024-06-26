@@ -1,6 +1,7 @@
 import { randomUUID } from "crypto";
 import { getLogger } from "$lib/server/logging";
 import type { HandleServerError } from "@sveltejs/kit";
+import { migrate } from "$lib/server/database";
 
 export const logger = getLogger("hooks");
 
@@ -17,7 +18,7 @@ export const handleError: HandleServerError = ({ error, event, message, status }
 					logger.info('route does not exist: %s', event.url.pathname);
 					break;
 				default:
-					logger.error(error, "Unknown client error.")
+					logger.error(error, "Unknown server error.")
 			}
 		}
 	} else {
@@ -36,4 +37,5 @@ export const handleError: HandleServerError = ({ error, event, message, status }
 	};
 };
 
-logger.info("successfully initialized hooks.")
+logger.debug("successfully initialized hooks.")
+await migrate()
