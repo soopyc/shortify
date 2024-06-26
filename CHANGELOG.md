@@ -25,21 +25,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 <!--
 ### 💥 BREAKING CHANGES 💥
-### ✨ Features
 ### 🐛 Bug Fixes
 ### 📖 Documentation
-### 🖧 Database Schema
 ### 🛠️ Utilities
 -->
+
+### ✨ Features
+- handle logging levels at run-time via the `DEBUG` environment variable (d930837)
+- automatically migrate the database on server hook setup (f3c5cbe)
 
 ### 🧩 Components
 - removed essentially every overcomplicated component and modules (857ebc4)
 - overhauled design for navlink and nav (f77288c, 5c5be43)
 - added code (55085c4), heading (6578523) and link (5a58850)
 
+### 🖧 Database Schema
+- added initial schema (d7f24f9)
+
 ### 📦 Dependencies
 - bumped everything (81b5a2b)
 - cleaned up dependencies and add unocss (c373f29)
+- (**dev**) added dotenv for drizzle config (1fc3f7a)
 
 ## [v0.0.3-alpha.2]
 
