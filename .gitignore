@@ -10,6 +10,9 @@ node_modules
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
+# secret stuff
+*.jwk.json
+
 # nix stuff
 result
 .direnv

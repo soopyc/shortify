@@ -46,6 +46,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - bumped everything (81b5a2b)
 - cleaned up dependencies and add unocss (c373f29)
 - (**dev**) added dotenv for drizzle config (1fc3f7a)
+- added jose for jwt operations (e9742a8)
+- added zod for json schema checking (d3bc588)
 
 ## [v0.0.3-alpha.2]
 
