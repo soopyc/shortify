@@ -3,6 +3,7 @@ root = true
 [*]
 indent_style = tab
 insert_final_newline = true
+trim_trailing_whitespace = true
 
 # tabs not allowed? no worries! let's just make this terrible for everyone with "normal" eyesight.
 [*.yaml]
