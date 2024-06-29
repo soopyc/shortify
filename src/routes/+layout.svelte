@@ -1,14 +1,17 @@
 <script lang="ts">
-    import Nav from "$lib/components/nav.svelte";
-    import { trueish } from "$lib/trueish";
-    import { env } from "$env/dynamic/public";
+	import Nav from "$lib/components/nav.svelte";
 
-    import '@fontsource/comic-mono/400.css';
-    import '@fontsource/comic-mono/700.css';
-    import './app.less';
+	// fonts
+	import "@fontsource/roboto-mono/400.css";
+	import "@fontsource/roboto-mono/700.css";
+
+	// styles
+	import "@unocss/reset/tailwind.css";
+	import "virtual:uno.css";
+	import "./app.css";
 </script>
 
-<div id="main">
+<div id="main" class="lg:mx-a max-w-3xl mt-4 mx-4">
 	<Nav />
 	<slot />
 </div>
