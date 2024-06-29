@@ -1,6 +1,8 @@
 <script>
 	import { page } from "$app/stores";
 	import { makeTitle } from "$lib";
+	import Code from "$lib/components/code.svelte";
+	import Heading from "$lib/components/heading.svelte";
 </script>
 
 <svelte:head>
@@ -8,37 +10,18 @@
 </svelte:head>
 
 <!-- we will move to a versioned api sooner or later, but this is what we have for now. -->
-<h1>API Documentation</h1>
+<Heading>API Documentation</Heading>
 <div>
-	<p>Base URL: <code class="copy">{$page.url.protocol + "//" + $page.url.host}</code></p>
+	<p>Base URL: <Code selectable={true}>{$page.url.protocol + "//" + $page.url.host}</Code></p>
 </div>
 
 <div>
-	<h2 id="get-S"><code>GET /</code></h2>
+	<Heading level={2} id="get-S"><Code>GET /</Code></Heading>
 	<p>You will get an HTML render of the main page.</p>
 </div>
 
 <div>
-	<h2 id="post-S"><code>POST /</code></h2>
-
+	<Heading level={2} id="post-S"><Code>POST /</Code></Heading>
+	<p>Balls</p>
 </div>
 
-<style lang="less">
-	.copy {
-		user-select: all;
-	}
-	div > p {
-		margin-top: 0.15em;
-		margin-bottom: 0.15em;
-	}
-
-	code {
-		background-color: rgba(235, 235, 235, 0.733);
-		color: rgb(204, 54, 104);
-		padding: 0 0.5em 0;
-	}
-
-	h2 {
-		margin-bottom: 0.25em;
-	}
-</style>
