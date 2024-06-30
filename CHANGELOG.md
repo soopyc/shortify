@@ -14,15 +14,17 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+and this project adheres to
+[Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-> **N.B.** Everything pre-`v0.0.3-alpha.0` is gone at the current moment. This is due to us
-> moving to a new changelog format. We will add the logs back
-> if we have time, but we don't right now.
+> **N.B.** Everything pre-`v0.0.3-alpha.0` is gone at the current moment. This
+> is due to us moving to a new changelog format. We will add the logs back if we
+> have time, but we don't right now.
 
 ---
 
 ## [Unreleased]
+
 <!--
 ### 💥 BREAKING CHANGES 💥
 ### 🐛 Bug Fixes
@@ -31,35 +33,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -->
 
 ### ✨ Features
-- handle logging levels at run-time via the `DEBUG` environment variable (d930837)
+
+- handle logging levels at run-time via the `DEBUG` environment variable
+  (d930837)
 - automatically migrate the database on server hook setup (f3c5cbe)
 - jwk reading is now implemented, which enables the following POC (5cd756f)
 - POC link generation implemented (48e03ce)
 - (**server**) add jwt token checks (9b9ab43)
 
 ### 🧩 Components
+
 - removed essentially every overcomplicated component and modules (857ebc4)
 - overhauled design for navlink and nav (f77288c, 5c5be43)
 - added code (55085c4), heading (6578523) and link (5a58850)
 
 ### 🖧 Database Schema
+
 - added initial schema (d7f24f9)
 
 ### 📦 Dependencies
+
 - bumped everything (81b5a2b)
 - cleaned up dependencies and add unocss (c373f29)
-- (**dev**) added dotenv for drizzle config (1fc3f7a)
 - added jose for jwt operations (e9742a8)
 - added zod for json schema checking (d3bc588)
+- (**dev**) added dotenv for drizzle config (1fc3f7a)
+- (**dev**) added vitest for unit testing (59a50f1)
 
 ## [v0.0.3-alpha.2]
 
 > [!CAUTION]
+>
 > This release is scrapped, please do **NOT** use it.
 
 ### ✨ Features
 
-- replaced @primer/octicons with unplugin-icons, which reduces bundle size (cf42928)
+- replaced @primer/octicons with unplugin-icons, which reduces bundle size
+  (cf42928)
 - added every existing item for a rewrite (80fe832)
 
 ### 📦 Dependencies
@@ -70,8 +80,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### 💥 BREAKING CHANGES 💥
 
-- Prisma is dropped in favor of Drizzle ORM. In the unlikely event that you already have a server setup, you will
-  likely need to purge everything in your db.
+- Prisma is dropped in favor of Drizzle ORM. In the unlikely event that you
+  already have a server setup, you will likely need to purge everything in your
+  db.
 
 ### 📦 Dependencies
 
