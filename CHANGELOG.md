@@ -33,6 +33,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### ✨ Features
 - handle logging levels at run-time via the `DEBUG` environment variable (d930837)
 - automatically migrate the database on server hook setup (f3c5cbe)
+- jwk reading is now implemented, which enables the following POC (5cd756f)
+- POC link generation implemented (48e03ce)
+- (**server**) add jwt token checks (9b9ab43)
 
 ### 🧩 Components
 - removed essentially every overcomplicated component and modules (857ebc4)
