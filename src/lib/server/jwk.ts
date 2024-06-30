@@ -5,6 +5,10 @@ import { importPKCS8, importJWK, type KeyLike } from "jose";
 const rawKeyContent = env.JWT_KEY
 let key: KeyLike | Uint8Array
 
+if (KEY_ALGO == "none") {
+	throw new Error("KEY_ALGO must not be none. This is very insecure, consider HS256 or EdDSA instead.")
+}
+
 if (rawKeyContent) {
 	switch (KEY_TYPE.toLowerCase()) {
 		case "jwk":
