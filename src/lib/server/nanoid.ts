@@ -1,4 +1,4 @@
-import * as checks from "./checks";
+import * as checks from "./checks/url";
 const { customAlphabet } = await import("nanoid");
 
 interface NanoIDOptions {
