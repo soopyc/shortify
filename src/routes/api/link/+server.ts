@@ -23,12 +23,12 @@ export async function POST({ request }) {
 	try {
 		data = await request.json()
 	} catch (e) {
-		return json({ success: false, message: "invalid JSON data: JSON cannot be parsed." }, { status: 400 })
+		return userError("invalid JSON data: JSON cannot be parsed.")
 	}
 	const parsed = postLink.safeParse(data)
 
 	if (!parsed.success) {
-		return json({success: false, message: "schema parse error, check data parameter for more details.", data: parsed.error.format()}, {status: 400})
+		return userError("schema parse error, check data parameter for more details.", { data: parsed.error.format() })
 	}
 	
 	const { longLink, customLink, length } = parsed.data
@@ -38,7 +38,7 @@ export async function POST({ request }) {
 		shortId: shortId,
 		shortlink: `https://${PUB_DOMAIN}/${shortId}`,
 		key: await new jose.SignJWT({ patch: true, delete: true })
-			.setProtectedHeader({alg: KEY_ALGO})
+			.setProtectedHeader({ alg: KEY_ALGO })
 			.setSubject(shortId)
 			.setIssuer(`${PUB_APP_NAME} v${APP_VER}`)
 			.sign(getKey())
