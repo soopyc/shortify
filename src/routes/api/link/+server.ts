@@ -1,10 +1,17 @@
 import * as jose from "jose"
-import { getKey } from "$lib/server/jwk"
+import postLink from "$lib/requestSchemas/postLink.js"
+
 import { json } from "@sveltejs/kit"
-import { generate } from "$lib/server/nanoid.js"
 import { PUB_APP_NAME, PUB_DOMAIN } from "$env/static/public"
-import postLink from "$lib/schemas/postLink.js"
 import { KEY_ALGO } from "$env/static/private"
+
+import { getKey } from "$lib/server/jwk"
+import { generate } from "$lib/server/nanoid.js"
+import { userError } from "$lib/server/responses.js"
+import { exists } from "$lib/server/database"
+import { getLogger } from "$lib/logging.js"
+
+const logger = getLogger("api:link")
 
 /**
  * `GET /api/link`: provide information about a link
@@ -30,10 +37,30 @@ export async function POST({ request }) {
 	if (!parsed.success) {
 		return userError("schema parse error, check data parameter for more details.", { data: parsed.error.format() })
 	}
-	
+
 	const { longLink, customLink, length } = parsed.data
-	// const _ = customLink
-	const shortId = generate(length)
+	let shortId: string = generate(length)
+
+	if (customLink) {
+		if (await exists(customLink)) {
+			return userError(`shortlink ${customLink} already exists, please choose a different one.`)
+		}
+		shortId = customLink
+	} else {
+		let attempts = 0;
+		while (await exists(shortId) && attempts < 5) {
+			logger.info(`shortlink collision detected: ${shortId}`)
+			attempts += 1
+			shortId = generate(length)
+		}
+
+		if (attempts >= 5) {
+			return userError(`shortlink generation attempt exceeded 5 times, try using a longer length. if you are using the default length, contact the site admin to raise the default and minimum length.`)
+		}
+	}
+
+	// TODO: send to db
+
 	return json({
 		shortId: shortId,
 		shortlink: `https://${PUB_DOMAIN}/${shortId}`,
