@@ -1,39 +1,39 @@
 <script lang="ts">
-	import { getLogger } from "$lib/logging";
-	import Shortener from "$lib/components/shortener.svelte";
-	import type { AdvancedConfiguration } from "$lib/types";
-	import type { Snapshot } from "./$types";
-	import { ShortlinkModes } from "$lib/types";
+	import { PUB_MAX_LENGTH, PUB_MIN_LENGTH } from "$env/static/public";
 	import { makeTitle } from "$lib";
-	
-	const logger = getLogger("index")
+	import Heading from "$lib/components/heading.svelte";
+	import TextInput from "$lib/components/inputs/TextInput.svelte";
 
-	interface SnapshotData {
-		advancedConfig: AdvancedConfiguration;
-		inputUrl: string;
-	}
-
-	export const snapshot: Snapshot<SnapshotData> = {
-		capture: (): SnapshotData => {
-			const a = { advancedConfig, inputUrl, }
-			logger.info("stored data", a)
-			return a
-		},
-		restore: (snapshot: SnapshotData): void => {
-			logger.info("restored data", snapshot);
-			({ advancedConfig, inputUrl } = snapshot);
-		},
-	};
-
-	// state
-	export let inputUrl: string
-	export let advancedConfig: AdvancedConfiguration = {
-		shortlinkMode: ShortlinkModes.Random,
-	};
+	export let rangeValue = 4;
 </script>
 
 <svelte:head>
 	<title>{makeTitle()}</title>
 </svelte:head>
 
-<Shortener {advancedConfig} {inputUrl} />
+<!-- Input -->
+<form method="post" class="mt-2">
+	<div class="flex md-1">
+		<TextInput
+			placeholder="Type or paste in a URL to shorten..."
+			extraClass="flex-grow"
+			id="url"
+			autocomplete="off"
+		/>
+	</div>
+	<div>
+		<Heading level={2}>Settings</Heading>
+		<label>
+			Length: {rangeValue}
+			<input
+				bind:value={rangeValue}
+				class="w-full"
+				id="length"
+				type="range"
+				step="1"
+				min={PUB_MIN_LENGTH}
+				max={PUB_MAX_LENGTH}
+			/>
+		</label>
+	</div>
+</form>
