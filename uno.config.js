@@ -13,10 +13,6 @@ export default defineConfig({
 
 	theme: {
 		colors: {
-			light: {
-				red: "#ff6767",
-			},
-
 			dark: {
 				red: "#ff8080",
 			},
