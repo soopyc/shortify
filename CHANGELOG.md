@@ -23,6 +23,7 @@ and this project adheres to
 
 ---
 
+<!-- ## [v0.0.4-alpha.0] -->
 ## [Unreleased]
 
 <!--
@@ -39,12 +40,15 @@ and this project adheres to
 - automatically migrate the database on server hook setup (f3c5cbe)
 - jwk reading is now implemented, which enables the following POC (5cd756f)
 - POC link generation implemented (48e03ce)
+- quick link generation by POSTing to `/` (d1276a9)
+- (**server**) shortlink collision checks (0eb8d7c)
 - (**server**) add jwt token checks (9b9ab43)
 
 ### 🧩 Components
 
 - removed essentially every overcomplicated component and modules (857ebc4)
 - overhauled design for navlink and nav (f77288c, 5c5be43)
+- overhauled design for homepage (b451644)
 - added code (55085c4), heading (6578523) and link (5a58850)
 
 ### 🖧 Database Schema
@@ -115,7 +119,8 @@ and this project adheres to
 
 - upgraded dependencies (please see the following commit) (df3c1e7)
 
-[Unreleased]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.1...HEAD
+[Unreleased]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.2...HEAD
+[v0.0.4-alpha.0]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.2...v0.0.4-alpha.0
 [v0.0.3-alpha.2]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.1...v0.0.3-alpha.2
 [v0.0.3-alpha.1]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.0...v0.0.3-alpha.1
 [v0.0.3-alpha.0]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.2-alpha.0...v0.0.3-alpha.0
