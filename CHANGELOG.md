@@ -23,15 +23,18 @@ and this project adheres to
 
 ---
 
-<!-- ## [v0.0.4-alpha.0] -->
 ## [Unreleased]
 
-<!--
-### 💥 BREAKING CHANGES 💥
+<!-- ### 💥 BREAKING CHANGES 💥
+### ✨ Features
 ### 🐛 Bug Fixes
+### 🧩 Components
 ### 📖 Documentation
+### 🖧 Database Schema
 ### 🛠️ Utilities
--->
+### 📦 Dependencies  -->
+
+## [v0.0.4-alpha.0]
 
 ### ✨ Features
 
@@ -41,6 +44,8 @@ and this project adheres to
 - jwk reading is now implemented, which enables the following POC (5cd756f)
 - POC link generation implemented (48e03ce)
 - quick link generation by POSTing to `/` (d1276a9)
+- (**server**) validate if the destination url is a valid https url before
+  proceeding (a41415f)
 - (**server**) shortlink collision checks (0eb8d7c)
 - (**server**) add jwt token checks (9b9ab43)
 
@@ -119,7 +124,8 @@ and this project adheres to
 
 - upgraded dependencies (please see the following commit) (df3c1e7)
 
-[Unreleased]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.2...HEAD
+[Unreleased]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.4-alpha.0...HEAD
+[v0.0.4-alpha.1]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.4-alpha.0...v0.0.4-alpha.1
 [v0.0.4-alpha.0]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.2...v0.0.4-alpha.0
 [v0.0.3-alpha.2]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.1...v0.0.3-alpha.2
 [v0.0.3-alpha.1]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.0...v0.0.3-alpha.1
