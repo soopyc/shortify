@@ -67,7 +67,10 @@ export async function POST({ request }) {
 			return userError(`shortlink generation attempt exceeded 5 times, try using a longer length. if you are using the default length, contact the site admin to raise the default and minimum length.`)
 	}
 
-	// TODO: send to db
+	await db.insert(schema.links).values({
+		id: shortId,
+		to: longLink,
+	})
 
 	return json({
 		shortId: shortId,
