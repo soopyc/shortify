@@ -34,17 +34,15 @@ export async function POST({ request }) {
 	}
 	const parsed = postLink.safeParse(data)
 
-	if (!parsed.success) {
+	if (!parsed.success)
 		return userError("schema parse error, check data parameter for more details.", { data: parsed.error.format() })
-	}
 
 	const { longLink, customLink, length } = parsed.data
 	let shortId: string = generate(length)
 
 	if (customLink) {
-		if (await exists(customLink)) {
-			return userError(`shortlink ${customLink} already exists, please choose a different one.`)
-		}
+		if (await exists(customLink))
+			return userError(`shortlink \`${customLink}\` already exists, please choose a different one.`)
 		shortId = customLink
 	} else {
 		let attempts = 0;
@@ -54,9 +52,8 @@ export async function POST({ request }) {
 			shortId = generate(length)
 		}
 
-		if (attempts >= 5) {
+		if (attempts >= 5)
 			return userError(`shortlink generation attempt exceeded 5 times, try using a longer length. if you are using the default length, contact the site admin to raise the default and minimum length.`)
-		}
 	}
 
 	// TODO: send to db
