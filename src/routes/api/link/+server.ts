@@ -12,6 +12,7 @@ import { generate } from "$lib/server/nanoid.js"
 import { userError } from "$lib/server/responses.js"
 import { db } from "$lib/server/database"
 import { getLogger } from "$lib/logging.js"
+import { checkIsHTTPURL } from "$lib/server/checks/url.js";
 
 const logger = getLogger("api:link")
 async function exists(id: string) {
@@ -46,6 +47,9 @@ export async function POST({ request }) {
 
 	const { longLink, customLink, length } = parsed.data
 	let shortId: string = generate(length)
+
+	if (!checkIsHTTPURL(longLink))
+		return userError("destination address is not a valid http url. ensure the protocol is http or https.")
 
 	if (customLink) {
 		if (await exists(customLink))

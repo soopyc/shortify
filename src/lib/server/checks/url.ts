@@ -1,9 +1,19 @@
-import { PUB_MIN_LENGTH, PUB_MAX_LENGTH } from "$env/static/public"	
+import { PUB_MIN_LENGTH, PUB_MAX_LENGTH } from "$env/static/public"
 
 export function checkURLSafe(chars: string) {
 	if (!chars.match(/^[\d\w-]+$/))
 		throw new Error("")
 	return
+}
+
+export function checkIsHTTPURL(testString: string) {
+	try {
+		const test = new URL(testString)
+		if (!test.protocol.match(/^https?:$/)) throw new Error("not a valid http(s) url")
+	} catch {
+		return false
+	}
+	return true
 }
 
 export function checkLength(length: number) {
