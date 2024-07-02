@@ -2,16 +2,23 @@ import * as jose from "jose"
 import postLink from "$lib/requests/schemas/postLink.js"
 
 import { json } from "@sveltejs/kit"
+import { eq } from "drizzle-orm";
 import { PUB_APP_NAME, PUB_DOMAIN } from "$env/static/public"
 import { KEY_ALGO } from "$env/static/private"
 
+import * as schema from "$lib/db/schema";
 import { getKey } from "$lib/server/jwk"
 import { generate } from "$lib/server/nanoid.js"
 import { userError } from "$lib/server/responses.js"
-import { exists } from "$lib/server/database"
+import { db } from "$lib/server/database"
 import { getLogger } from "$lib/logging.js"
 
 const logger = getLogger("api:link")
+async function exists(id: string) {
+	return await db.query.links.findFirst({
+		where: eq(schema.links.id, id)
+	})
+}
 
 /**
  * `GET /api/link`: provide information about a link

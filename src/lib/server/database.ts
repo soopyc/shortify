@@ -1,10 +1,9 @@
 import pg from "pg";
-import * as schema from "../db/schema";
+import * as schema from "$lib/db/schema";
 import { DATABASE_URL } from "$env/static/private";
 import { drizzle } from "drizzle-orm/node-postgres"
 import { migrate as _migrate } from "drizzle-orm/node-postgres/migrator"
 import { getLogger } from "./logging";
-import { eq } from "drizzle-orm";
 
 const logger = getLogger("db")
 const drizzleLogger = getLogger("db:drizzle")
@@ -17,12 +16,6 @@ const pool = new Pool({
 })
 
 export const db = drizzle(pool, { schema })
-
-export async function exists(id: string) {
-	return await db.query.links.findFirst({
-		where: eq(schema.links.id, id)
-	})
-}
 
 export async function migrate() {
 	logger.info("migrating database...")
