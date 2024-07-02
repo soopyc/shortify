@@ -1,5 +1,5 @@
 import * as jose from "jose"
-import postLink from "$lib/requestSchemas/postLink.js"
+import postLink from "$lib/requests/schemas/postLink.js"
 
 import { json } from "@sveltejs/kit"
 import { PUB_APP_NAME, PUB_DOMAIN } from "$env/static/public"
