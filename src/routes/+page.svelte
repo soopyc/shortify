@@ -4,7 +4,10 @@
 	import Heading from "$lib/components/heading.svelte";
 	import TextInput from "$lib/components/inputs/TextInput.svelte";
 
-	export let rangeValue = 4;
+	// get the average of {MAX,MIN}_LENGTH to use as default to avoid hardcoding a broken value.
+	const MIN_LENGTH = Number.parseInt(PUB_MIN_LENGTH)
+	const MAX_LENGTH = Number.parseInt(PUB_MAX_LENGTH)
+	export let rangeValue = Math.floor((MIN_LENGTH + MAX_LENGTH) / 2);
 </script>
 
 <svelte:head>
