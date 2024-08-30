@@ -20,7 +20,7 @@
 {:else}
 	<Heading>Error {$page.status}</Heading>
 
-	<p>Something might have gone wrong if you managed to see this page.</p>
+	<p>Something went wrong if you're looking at this page.</p>
 	<p>
 		You should contact the site admin and provide the following information, and
 		what you were doing prior to this error.
