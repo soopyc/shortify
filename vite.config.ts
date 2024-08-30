@@ -10,7 +10,9 @@ export default defineConfig({
 	build: {
 		target: "esnext"
 	},
-	test: {},
+	test: {
+		include: ["src/**/*.{test,spec}.?(c|m)[jt]s?(x)"],
+	},
 	plugins: [
 		UnoCSS({
 			extractors: [
