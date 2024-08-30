@@ -34,6 +34,27 @@ and this project adheres to
 ### 🛠️ Utilities
 ### 📦 Dependencies  -->
 
+## [v0.1.0-beta.0]
+
+### ✨ Features
+
+- users are now actually redirected to the correct destination when using a
+  short link (c71cd69)
+
+### 🐛 Bug Fixes
+
+- added missing color `light-red` causing some text to not have proper colors
+  (3e82916)
+- use an average of the minimum and maximum link length as the default to
+  prevent invalid values when hardcoding (55a6044)
+- (**server**) fixed shorthand endpoint (/) not returning a proper error
+  response (9ca4447)
+- (**server**) also log error id on internal server errors (bb57556)
+
+### 📦 Dependencies
+
+- bumped everything (20ac7dd)
+
 ## [v0.0.4-alpha.0]
 
 ### ✨ Features
@@ -125,6 +146,7 @@ and this project adheres to
 - upgraded dependencies (please see the following commit) (df3c1e7)
 
 [Unreleased]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.4-alpha.0...HEAD
+[v0.1.0-beta.0]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.4-alpha.1...v0.1.0-beta
 [v0.0.4-alpha.1]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.4-alpha.0...v0.0.4-alpha.1
 [v0.0.4-alpha.0]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.2...v0.0.4-alpha.0
 [v0.0.3-alpha.2]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.1...v0.0.3-alpha.2
