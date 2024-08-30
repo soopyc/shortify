@@ -9,25 +9,25 @@ export const handleError: HandleServerError = ({ error, event, message, status }
 	const id = randomUUID();
 
 	if (error instanceof Error) {
+		logger.error("Error ID: %s", id);
 		if (status >= 500) {
 			logger.error(error.message)
-			logger.error(error, "Error ID: %s", id);
 		} else {
 			switch (status) {
 				case 404:
 					logger.info('route does not exist: %s', event.url.pathname);
 					break;
 				default:
-					logger.error(error, "Unknown server error.")
+					logger.error(error, "Unknown server error.");
 			}
 		}
 	} else {
 		logger.error(
-			"Error ID: %s\n" + 
+			"Error ID: %s\n" +
 			"The caught error is not even an instance of Error. This might be because of a compiler error.\n" +
 			// @ts-expect-error what do you want it's already `?.`
 			"Error message (if any): %s", id, error?.message
-		)
+		);
 	}
 
 	return {
