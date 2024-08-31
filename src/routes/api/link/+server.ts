@@ -13,6 +13,7 @@ import { userError } from "$lib/server/responses.js";
 import { db } from "$lib/server/database";
 import { getLogger } from "$lib/logging.js";
 import { checkIsHTTPURL } from "$lib/server/checks/url.js";
+import { returnJSON } from "$lib/responses.js";
 
 const logger = getLogger("api:link");
 async function findDb(id: string) {
@@ -24,8 +25,18 @@ async function findDb(id: string) {
 /**
  * `GET /api/link`: provide information about a link
  */
-export async function GET() {
-	throw new Error("Not implemented yet.");
+export async function GET({ url }) {
+	const id = url.searchParams.get("id");
+	if (!id) {
+		return returnJSON({ message: "id parameter not provided", success: false }, 400);
+	}
+
+	const result = await findDb(id);
+
+	if (!result || !result.to) {
+		return returnJSON({ message: "not found", success: false }, 404);
+	}
+	return returnJSON(result);
 }
 
 /**
