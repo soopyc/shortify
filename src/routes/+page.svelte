@@ -18,7 +18,7 @@
 		return async ({ result, update }) => {
 			await update({ reset: false });
 
-			if (result.type == "success" && result.data) {
+			if (result.type == "success" && result.data?.success) {
 				shortenerValue = result.data.shortlink ?? "unknown error";
 			}
 		};
