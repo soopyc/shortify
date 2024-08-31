@@ -61,6 +61,8 @@ export async function POST({ request }) {
 	if (!checkIsHTTPURL(longLink))
 		return userError("destination address is not a valid http url. ensure the protocol is http or https.");
 
+	// TODO: handle if the url prefix is the same as the base url. that should reject properly.
+
 	if (customLink) {
 		if (await findDb(customLink))
 			return userError(`shortlink \`${customLink}\` already exists, please choose a different one.`);
