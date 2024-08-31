@@ -27,5 +27,40 @@
 
 <div>
 	<Heading level={2} id="post-S"><Code>POST /</Code></Heading>
-	<p>Balls</p>
+	<p>Create a shortlink easily. The redaction token is provided in headers.</p>
+	<p>Body: (string) the long link.</p>
+	<p>Returns: (string) full shortlink url</p>
+</div>
+
+<div>
+	<Heading level={2} id="get-api-link"><Code>GET /api/link</Code></Heading>
+	<p>Get what the server knows about a shortlink.</p>
+	<p>Query params:</p>
+	<ul class="list-disc list-inside">
+		<li><i>id:</i> shortlink id (the shortlink part of the full uri)</li>
+	</ul>
+
+	<p>Returns: (object)</p>
+	<ul class="list-disc list-inside">
+		<li><i>id:</i> the shortlink id</li>
+		<li><i>to:</i> the destination url</li>
+	</ul>
+</div>
+
+<div>
+	<Heading level={2} id="post-api-link"><Code>POST /api/link</Code></Heading>
+	<p>Make a new shortlink with custom parameters.</p>
+	<p>Body (object):</p>
+	<ul class="list-disc list-inside">
+		<li><i>longLink: (string)</i> the long link to be shortened</li>
+		<li><i>customLink: (string | undefined)</i> a custom shortlink to use</li>
+		<li><i>length: (number | undefined)</i> the length of the generated shortlink</li>
+	</ul>
+
+	<p>Returns: (object)</p>
+	<ul class="list-disc list-inside">
+		<li><i>shortId:</i> the shortlink id</li>
+		<li><i>shortlink:</i> the full shortened url</li>
+		<li><i>key:</i> token to redact the shortlink</li>
+	</ul>
 </div>
