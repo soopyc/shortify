@@ -175,7 +175,7 @@ async function main() {
 	}
 
 	let finalKey;
-	let stopLoader: Awaited<ReturnType<typeof generateDots>> = (_) => { _; };
+	let stopLoader: Awaited<ReturnType<typeof generateDots>> | undefined = undefined;
 	try {
 		if (args.symmetric) {
 			await Deno.stdout.write(
@@ -211,7 +211,7 @@ async function main() {
 			throw new Error("this is not supposed to happen!!??!?!?");
 		}
 	} catch (e) {
-		stopLoader(true);
+		if (stopLoader) stopLoader(true);
 		if (e instanceof jose.errors.JOSENotSupported) {
 			console.error(
 				colors.red(

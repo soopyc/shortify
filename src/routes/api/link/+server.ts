@@ -1,5 +1,4 @@
 import * as jose from "jose";
-import postLink from "$lib/requests/schemas/postLink.js";
 
 import { json } from "@sveltejs/kit";
 import { eq } from "drizzle-orm";
@@ -14,6 +13,7 @@ import { db } from "$lib/server/database";
 import { getLogger } from "$lib/logging.js";
 import { checkIsHTTPURL } from "$lib/server/checks/url.js";
 import { returnJSON } from "$lib/responses.js";
+import postLink from "$lib/requests/schemas/postLink.js";
 
 const logger = getLogger("api:link");
 async function findDb(id: string) {
