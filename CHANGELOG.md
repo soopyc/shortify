@@ -26,13 +26,24 @@ and this project adheres to
 ## [Unreleased]
 
 <!-- ### 💥 BREAKING CHANGES 💥
-### ✨ Features
-### 🐛 Bug Fixes
+
 ### 🧩 Components
 ### 📖 Documentation
 ### 🖧 Database Schema
 ### 🛠️ Utilities
-### 📦 Dependencies  -->
+  -->
+
+### ✨ Features
+- logging in with github now supported! (b6ffc06)
+
+### 🐛 Bug Fixes
+
+- improved monitoring in production by logging error and the id in the same
+  message (88a7073)
+
+### 📦 Dependencies
+
+- add lucia and arctic for authentication (eed4f62)
 
 ## [v0.1.0-beta.0]
 
@@ -146,8 +157,7 @@ and this project adheres to
 - upgraded dependencies (please see the following commit) (df3c1e7)
 
 [Unreleased]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.4-alpha.0...HEAD
-[v0.1.0-beta.0]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.4-alpha.1...v0.1.0-beta
-[v0.0.4-alpha.1]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.4-alpha.0...v0.0.4-alpha.1
+[v0.1.0-beta.0]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.4-alpha.0...v0.1.0-beta.0
 [v0.0.4-alpha.0]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.2...v0.0.4-alpha.0
 [v0.0.3-alpha.2]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.1...v0.0.3-alpha.2
 [v0.0.3-alpha.1]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.0...v0.0.3-alpha.1
