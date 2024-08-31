@@ -27,12 +27,16 @@ and this project adheres to
 
 <!-- ### 💥 BREAKING CHANGES 💥
 ### ✨ Features
-### 🐛 Bug Fixes
 ### 🧩 Components
 ### 📖 Documentation
 ### 🖧 Database Schema
 ### 🛠️ Utilities
 ### 📦 Dependencies  -->
+
+### 🐛 Bug Fixes
+
+- prevent "unknown error" from happening as often with checking if the resulting
+  data is successful or not before setting the value (73f97dd)
 
 ## [v0.1.0-beta.1]
 
