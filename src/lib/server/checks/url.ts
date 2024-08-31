@@ -6,11 +6,16 @@ export function checkURLSafe(chars: string) {
 }
 
 export function checkIsHTTPURL(testString: string) {
-	const test = new URL(testString);
-	if (!test.protocol.match(/^https?:$/)) {
+	try {
+		// needs catching
+		const test = new URL(testString);
+		if (test.protocol.match(/^https?:$/)) {
+			return true;
+		} else {
+			return false;
+		}
+	} catch {
 		return false;
-	} else {
-		return true;
 	}
 }
 
