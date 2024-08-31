@@ -18,9 +18,12 @@
 	},
 	"dependencies": {
 		"@fontsource/roboto-mono": "^5.0.19",
+		"@lucia-auth/adapter-drizzle": "^1.1.0",
 		"@prisma/client": "5.19.0",
+		"arctic": "^1.9.2",
 		"drizzle-orm": "^0.33.0",
 		"jose": "^5.8.0",
+		"lucia": "^3.2.0",
 		"nanoid": "^5.0.7",
 		"pg": "^8.12.0",
 		"pino": "^9.3.2",
