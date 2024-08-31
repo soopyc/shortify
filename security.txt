@@ -1,0 +1,4 @@
+Contact: mailto:me@soopy.moe
+Contact: https://soopy.moe
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: en, zh

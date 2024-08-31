@@ -20,6 +20,7 @@ export const db = drizzle(pool, { schema })
 export async function migrate() {
 	logger.info("migrating database...")
 	try {
+		// XXX: this might become a problem with nix
 		await _migrate(db, { migrationsFolder: "./src/lib/db/drizzle" })
 	} catch (e) {
 		if (e instanceof Error) {

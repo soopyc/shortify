@@ -175,7 +175,7 @@ async function main() {
 	}
 
 	let finalKey;
-	let stopLoader: Awaited<ReturnType<typeof generateDots>> = () => {};
+	let stopLoader: Awaited<ReturnType<typeof generateDots>> = (_) => {_};
 	try {
 		if (args.symmetric) {
 			await Deno.stdout.write(

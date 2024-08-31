@@ -9,9 +9,12 @@
 	import "@unocss/reset/tailwind.css";
 	import "virtual:uno.css";
 	import "./app.css";
+
+	export let data;
+	export let user = data.user
 </script>
 
 <div id="main" class="lg:mx-a max-w-3xl mt-4 mx-4">
-	<Nav />
+	<Nav {user} />
 	<slot />
 </div>
