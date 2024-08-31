@@ -83,6 +83,7 @@ export async function POST({ request }) {
 	});
 
 	return json({
+		success: true,
 		shortId: shortId,
 		shortlink: `https://${PUB_DOMAIN}/${shortId}`,
 		key: await new jose.SignJWT({ patch: true, delete: true })
