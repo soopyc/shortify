@@ -38,11 +38,20 @@ export async function GET({ url, cookies, fetch }) {
 		const githubUser: GitHubUserResponse = await data.json();
 
 		// find existing user in db
-		let finalUser = (await db.select().from(user).where(eq(user.github_id, githubUser.id)))[0];
+		let finalUser = await db.query.user.findFirst({ where: eq(user.github_id, githubUser.id) });
 
 		// create a new user if one doesn't exist already
 		if (!finalUser) {
-			finalUser = (await db.insert(user).values({ id: randomUUID(), github_id: githubUser.id, username: githubUser.login }).returning())[0];
+			finalUser = (
+				await db
+					.insert(user)
+					.values({
+						id: randomUUID(),
+						github_id: githubUser.id,
+						username: githubUser.login,
+					})
+					.returning()
+			)[0];
 		}
 
 		const session = await lucia.createSession(finalUser.id, {});
