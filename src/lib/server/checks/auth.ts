@@ -2,9 +2,9 @@ import { jwtVerify, type KeyLike } from "jose";
 // import { getKey } from "../jwk";
 // import { KEY_ALGO } from "$env/static/private";
 
-export function checkHeader(headers: Headers) {
-	headers
-}
+// export function checkHeader(headers: Headers) {
+// 	headers.get("Authorization")
+// }
 
 /**
  *
@@ -17,6 +17,6 @@ export async function checkJWT(jwt: string, id: string, algorithm: string, key: 
 	const { payload } = await jwtVerify(jwt, key, {
 		algorithms: [algorithm],
 		subject: id,
-	})
-	return payload
+	});
+	return payload;
 }

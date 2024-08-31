@@ -8,7 +8,7 @@ export const logger = getLogger("hooks");
 
 export const handle: Handle = async ({ event, resolve }) => {
 	// see if we have an existing session
-	const sessionId = event.cookies.get(lucia.sessionCookieName) || lucia.readBearerToken(event.request.headers.get("Authorization") || "")
+	const sessionId = event.cookies.get(lucia.sessionCookieName) || lucia.readBearerToken(event.request.headers.get("Authorization") || "");
 	if (!sessionId) {
 		// bail if we don't
 		event.locals.user = null;
@@ -29,14 +29,14 @@ export const handle: Handle = async ({ event, resolve }) => {
 	if (sessionCookie) {
 		event.cookies.set(sessionCookie.name, sessionCookie.value, {
 			path: "/",
-			...sessionCookie.attributes
-		})
+			...sessionCookie.attributes,
+		});
 	}
 
 	event.locals.user = user;
 	event.locals.session = session;
-	return resolve(event)
-}
+	return resolve(event);
+};
 
 export const handleError: HandleServerError = async ({ error, event, message, status }) => {
 	const id = randomUUID();
@@ -44,7 +44,7 @@ export const handleError: HandleServerError = async ({ error, event, message, st
 	if (error instanceof Error) {
 		switch (status) {
 			case 404:
-				logger.info('route does not exist: %s', event.url.pathname);
+				logger.info("route does not exist: %s", event.url.pathname);
 				break;
 			default:
 				logger.error(error, "Error ID: %s", id);
@@ -52,10 +52,10 @@ export const handleError: HandleServerError = async ({ error, event, message, st
 		}
 	} else {
 		logger.error(
-			"Error ID: %s\n" +
-			"The caught error is not even an instance of Error. This might be because of a compiler error.\n" +
+			"Error ID: %s\n"
+			+ "The caught error is not even an instance of Error. This might be because of a compiler error.\n"
 			// @ts-expect-error what do you want it's already `?.`
-			"Error message (if any): %s", id, error?.message
+			+ "Error message (if any): %s", id, error?.message,
 		);
 	}
 
@@ -66,5 +66,5 @@ export const handleError: HandleServerError = async ({ error, event, message, st
 	};
 };
 
-logger.debug("successfully initialized hooks.")
-await migrate()
+logger.debug("successfully initialized hooks.");
+await migrate();

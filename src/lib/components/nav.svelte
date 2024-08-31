@@ -4,7 +4,7 @@
 	import Navlink from "./navlink.svelte";
 	import User from "./user.svelte";
 
-    export const app_version = APP_VER // @eslint-silent-error this is defined in app.d.ts.
+    export const app_version = APP_VER; // @eslint-silent-error this is defined in app.d.ts.
 	export let user;
 </script>
 

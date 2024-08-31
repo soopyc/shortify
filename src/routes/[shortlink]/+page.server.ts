@@ -5,10 +5,10 @@ import { links } from "$lib/db/schema";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ params }) => {
-	const result = (await db.select().from(links).where(eq(links.id, params.shortlink)))[0]?.to
+	const result = (await db.select().from(links).where(eq(links.id, params.shortlink)))[0]?.to;
 
 	if (!result) {
-		error(404)
+		error(404);
 	}
-	redirect(301, result)
-}
+	redirect(301, result);
+};

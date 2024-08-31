@@ -34,6 +34,7 @@
 	"devDependencies": {
 		"@iconify-json/gg": "^1.1.10",
 		"@iconify-json/octicon": "^1.1.57",
+		"@stylistic/eslint-plugin": "^2.7.2",
 		"@sveltejs/adapter-auto": "^3.2.4",
 		"@sveltejs/adapter-node": "^5.2.2",
 		"@sveltejs/kit": "^2.5.25",
@@ -45,7 +46,7 @@
 		"@unocss/vite": "^0.62.3",
 		"dotenv": "^16.4.5",
 		"drizzle-kit": "^0.24.2",
-		"eslint": "~8.56.0",
+		"eslint": "~9.9.1",
 		"eslint-plugin-svelte": "^2.43.0",
 		"globals": "^15.9.0",
 		"less": "^4.2.0",
@@ -54,7 +55,7 @@
 		"svelte-check": "^3.8.6",
 		"tslib": "^2.7.0",
 		"typescript": "^5.5.4",
-		"typescript-eslint": "^7.18.0",
+		"typescript-eslint": "^8.3.0",
 		"unocss": "^0.62.3",
 		"vite": "^5.4.2",
 		"vitest": "^2.0.5"

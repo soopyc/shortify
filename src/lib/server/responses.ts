@@ -4,6 +4,6 @@ export function userError(message: string, rest: object = {}) {
 	return json({
 		success: false,
 		message,
-		...rest
-	}, { status: 400 })
+		...rest,
+	}, { status: 400 });
 }

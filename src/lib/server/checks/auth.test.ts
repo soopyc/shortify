@@ -2,8 +2,8 @@ import { importJWK } from "jose";
 import { expect, test } from "vitest";
 import { checkJWT } from "./auth";
 
-const dummyKey = await importJWK({ "kty": "oct", "k": "EiSRB7OnnYXnk3gZlJt9dfPU85ov9WALG5FgoqwVyX4" })
-const edKey = await importJWK({ "kty": "OKP", "crv": "Ed25519", "x": "wkJqqpdhV_Plfgmc11effrUuI0Gy5kQM04J2F9_tZbs", "d": "4RbC4cKwPK70sh3I4LXRK3jRaWckDzR-YoEeX98cZNQ" })
+const dummyKey = await importJWK({ kty: "oct", k: "EiSRB7OnnYXnk3gZlJt9dfPU85ov9WALG5FgoqwVyX4" });
+const edKey = await importJWK({ kty: "OKP", crv: "Ed25519", x: "wkJqqpdhV_Plfgmc11effrUuI0Gy5kQM04J2F9_tZbs", d: "4RbC4cKwPK70sh3I4LXRK3jRaWckDzR-YoEeX98cZNQ" });
 
 test("key signed by dummy key should verify", async () => {
 	await expect(checkJWT(
@@ -11,8 +11,8 @@ test("key signed by dummy key should verify", async () => {
 		"QUbn",
 		"HS256",
 		dummyKey,
-	)).resolves.toBeTruthy()
-})
+	)).resolves.toBeTruthy();
+});
 
 test("key signed by asymmetric keys should verify", async () => {
 	await expect(checkJWT(
@@ -20,8 +20,8 @@ test("key signed by asymmetric keys should verify", async () => {
 		"qKY7",
 		"EdDSA",
 		edKey,
-	)).resolves.toBeTruthy()
-})
+	)).resolves.toBeTruthy();
+});
 
 test("keys with none algo must error", async () => {
 	await expect(checkJWT(
@@ -29,8 +29,8 @@ test("keys with none algo must error", async () => {
 		"gock",
 		"none",
 		edKey,
-	)).rejects.toThrowError("alg none is not supported")
-})
+	)).rejects.toThrowError("alg none is not supported");
+});
 
 test("key to the wrong subject should error", async () => {
 	await expect(checkJWT(
@@ -38,8 +38,8 @@ test("key to the wrong subject should error", async () => {
 		"gock",
 		"HS256",
 		dummyKey,
-	)).rejects.toThrowError('unexpected "sub" claim')
-})
+	)).rejects.toThrowError("unexpected \"sub\" claim");
+});
 
 test("key signed by the wrong key should error", async () => {
 	await expect(checkJWT(
@@ -47,8 +47,8 @@ test("key signed by the wrong key should error", async () => {
 		"yNHp",
 		"HS256",
 		dummyKey,
-	)).rejects.toThrowError("signature verification failed")
-})
+	)).rejects.toThrowError("signature verification failed");
+});
 
 test("key with the wrong alg should error", async () => {
 	await expect(checkJWT(
@@ -56,5 +56,5 @@ test("key with the wrong alg should error", async () => {
 		"rs7s",
 		"HS256",
 		dummyKey,
-	)).rejects.toThrowError(/^"alg" .* value not allowed/)
-})
+	)).rejects.toThrowError(/^"alg" .* value not allowed/);
+});

@@ -8,7 +8,7 @@ import _package from "./package.json";
 
 export default defineConfig({
 	build: {
-		target: "esnext"
+		target: "esnext",
 	},
 	test: {
 		include: ["src/**/*.{test,spec}.?(c|m)[jt]s?(x)"],
@@ -16,7 +16,7 @@ export default defineConfig({
 	plugins: [
 		UnoCSS({
 			extractors: [
-				extractorSvelte()
+				extractorSvelte(),
 			],
 		}),
 		sveltekit(),

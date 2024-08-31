@@ -1,13 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { PUB_APP_NAME } from '$env/static/public';
+import { PUB_APP_NAME } from "$env/static/public";
 import { NODE_ENV } from "$env/static/private";
-import { env } from '$env/dynamic/private';
+import { env } from "$env/dynamic/private";
 import pino from "pino";
 
 export function getLogger(name: string) {
 	let transport = undefined;
-	let level = env.DEBUG || "debug"
+	let level = env.DEBUG || "debug";
 
 	if (NODE_ENV != "production") {
 		transport = pino.transport({
@@ -16,8 +14,8 @@ export function getLogger(name: string) {
 	}
 
 	if (!level) {
-		level = "info" // default
+		level = "info"; // default
 	}
 
-	return pino({name: `${PUB_APP_NAME.toLowerCase()}:server:${name}`, level}, transport);
+	return pino({ name: `${PUB_APP_NAME.toLowerCase()}:server:${name}`, level }, transport);
 }

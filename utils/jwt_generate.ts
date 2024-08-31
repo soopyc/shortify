@@ -15,8 +15,8 @@ const help = `JWT_GENERATE.TS(1)                                        LINKIFY(
 
 NAME
     ${colors.blue(
-			"deno jwt_generate.ts"
-		)} <-t type> <-f format> [-hsSol] [options...]
+		"deno jwt_generate.ts",
+	)} <-t type> <-f format> [-hsSol] [options...]
 
 SYNOPSIS
     your mother, aka a simple jwt secure token generator.
@@ -55,21 +55,21 @@ const cliArgs: ParseOptions = {
 	string: ["export-format", "outfile", "modlen", "curve"],
 
 	default: {
-		modlen: undefined,
-		outfile: null,
-		curve: undefined,
+		"modlen": undefined,
+		"outfile": null,
+		"curve": undefined,
 		"export-format": ExportFormat.JWK,
 	},
 
 	alias: {
-		help: "h",
-		modlen: "l",
-		type: "t",
+		"help": "h",
+		"modlen": "l",
+		"type": "t",
 		"export-format": "f",
-		symmetric: "s",
-		asymmetric: "S",
-		outfile: "o",
-		curve: "crv",
+		"symmetric": "s",
+		"asymmetric": "S",
+		"outfile": "o",
+		"curve": "crv",
 	},
 };
 
@@ -86,7 +86,7 @@ function validateArgs() {
 	// we are only able to select one from symmetric or asym. key types
 	if (args.symmetric && args.asymmetric) {
 		throw new Error(
-			"symmetric and asymmetric keys are mutually exclusive. please only select one."
+			"symmetric and asymmetric keys are mutually exclusive. please only select one.",
 		);
 	}
 	if (!args.type) throw new Error("please specify a key type with --type.");
@@ -94,7 +94,7 @@ function validateArgs() {
 		throw new Error(
 			`export type ${
 				args.format
-			} is not in the recognized format list (${Object.values(ExportFormat)})`
+			} is not in the recognized format list (${Object.values(ExportFormat)})`,
 		);
 	}
 
@@ -102,8 +102,8 @@ function validateArgs() {
 	if (!(args.symmetric || args.asymmetric)) args.symmetric = true;
 	if (args.modlen) args.modlen = Number(args.modlen); // coerce modlen into a number
 
-	const outfileSuffix =
-		args["export-format"] == ExportFormat.JWK ? "jwk.json" : "pem";
+	const outfileSuffix
+		= args["export-format"] == ExportFormat.JWK ? "jwk.json" : "pem";
 	if (args.outfile == null) args.outfile = `jwt_${args.type}.${outfileSuffix}`; // set default only if
 	return args;
 }
@@ -115,7 +115,7 @@ function validateArgs() {
  */
 async function exportKey(
 	key: jose.KeyLike,
-	exportFormat: ExportFormat
+	exportFormat: ExportFormat,
 ): Promise<Uint8Array> {
 	let final: string;
 	if (exportFormat == ExportFormat.JWK) {
@@ -132,16 +132,16 @@ async function exportKey(
 				break;
 			case "secret":
 				throw new Error(
-					"non asymmetric keys must not use SPKI/PKCS8 output format."
+					"non asymmetric keys must not use SPKI/PKCS8 output format.",
 				);
 			default:
 				throw new Error(
-					`unknown key type ${key.type}. this is a bug. please report this error.`
+					`unknown key type ${key.type}. this is a bug. please report this error.`,
 				);
 		}
 	} else {
 		throw new Error(
-			`unsupported export type ${exportFormat}. this is a bug. please report this error.`
+			`unsupported export type ${exportFormat}. this is a bug. please report this error.`,
 		);
 	}
 	return encoder.encode(final);
@@ -175,11 +175,11 @@ async function main() {
 	}
 
 	let finalKey;
-	let stopLoader: Awaited<ReturnType<typeof generateDots>> = (_) => {_};
+	let stopLoader: Awaited<ReturnType<typeof generateDots>> = (_) => { _; };
 	try {
 		if (args.symmetric) {
 			await Deno.stdout.write(
-				encoder.encode(colors.blue("generating secret "))
+				encoder.encode(colors.blue("generating secret ")),
 			);
 			stopLoader = await generateDots();
 			const secret = await jose.generateSecret(args.type, {
@@ -190,7 +190,7 @@ async function main() {
 			// we're done here
 		} else if (args.asymmetric) {
 			await Deno.stdout.write(
-				encoder.encode(colors.blue("generating secret "))
+				encoder.encode(colors.blue("generating secret ")),
 			);
 			stopLoader = await generateDots();
 
@@ -202,7 +202,7 @@ async function main() {
 			stopLoader();
 			console.log(colors.green("resulting public key"));
 			await Deno.stderr.write(
-				await exportKey(publicKey, args["export-format"])
+				await exportKey(publicKey, args["export-format"]),
 			);
 			console.log();
 			finalKey = privateKey;
@@ -215,22 +215,22 @@ async function main() {
 		if (e instanceof jose.errors.JOSENotSupported) {
 			console.error(
 				colors.red(
-					"an error occurred. this is most likely due to your key not being a compatible type."
-				)
+					"an error occurred. this is most likely due to your key not being a compatible type.",
+				),
 			);
 			console.error(
 				colors.red(
 					`please check if your key type (${args.type}) is actually a ${
 						args.symmetric ? "symmetric" : "asymmetric"
-					} key type.`
-				)
+					} key type.`,
+				),
 			);
 		}
 		throw e;
 	}
 
-	const output =
-		finalKey instanceof Uint8Array
+	const output
+		= finalKey instanceof Uint8Array
 			? finalKey
 			: await exportKey(finalKey, args["export-format"]);
 	if (args.outfile == "-") {
@@ -253,7 +253,7 @@ async function main() {
 					console.log(colors.brightBlack(decision));
 					if (decision == "y") {
 						console.log(
-							colors.yellow("\nwarning: overwrote file with new contents.")
+							colors.yellow("\nwarning: overwrote file with new contents."),
 						);
 						Deno.writeFile(args.outfile, output);
 					} else {

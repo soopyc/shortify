@@ -1,5 +1,5 @@
 import pino from "pino";
-import { PUB_APP_NAME } from '$env/static/public';
+import { PUB_APP_NAME } from "$env/static/public";
 
 /**
  * name will get appended with app_name.
@@ -7,5 +7,5 @@ import { PUB_APP_NAME } from '$env/static/public';
  * @returns a pino logger instance
  */
 export function getLogger(name: string) {
-	return pino({name: `${PUB_APP_NAME.toLowerCase()}:client:${name}`});
+	return pino({ name: `${PUB_APP_NAME.toLowerCase()}:client:${name}` });
 }
