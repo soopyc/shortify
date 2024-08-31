@@ -12,7 +12,6 @@ import { userError } from "$lib/server/responses.js";
 import { db } from "$lib/server/database";
 import { getLogger } from "$lib/logging.js";
 import { checkIsHTTPURL } from "$lib/server/checks/url.js";
-import { returnJSON } from "$lib/responses.js";
 import postLink from "$lib/requests/schemas/postLink.js";
 
 const logger = getLogger("api:link");
@@ -28,15 +27,15 @@ async function findDb(id: string) {
 export async function GET({ url }) {
 	const id = url.searchParams.get("id");
 	if (!id) {
-		return returnJSON({ message: "id parameter not provided", success: false }, 400);
+		return json({ message: "id parameter not provided", success: false }, { status: 400 });
 	}
 
 	const result = await findDb(id);
 
 	if (!result || !result.to) {
-		return returnJSON({ message: "not found", success: false }, 404);
+		return json({ message: "not found", success: false }, { status: 404 });
 	}
-	return returnJSON(result);
+	return json(result);
 }
 
 /**
