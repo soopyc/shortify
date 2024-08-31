@@ -1,8 +1,8 @@
 <script lang="ts">
+	import { enhance } from "$app/forms";
 	import { PUB_MAX_LENGTH, PUB_MIN_LENGTH } from "$env/static/public";
 	import { makeTitle } from "$lib";
 	import Heading from "$lib/components/heading.svelte";
-	import TextInput from "$lib/components/inputs/TextInput.svelte";
 
 	// get the average of {MAX,MIN}_LENGTH to use as default to avoid hardcoding a broken value.
 	const MIN_LENGTH = Number.parseInt(PUB_MIN_LENGTH)
@@ -15,14 +15,17 @@
 </svelte:head>
 
 <!-- Input -->
-<form method="post" class="mt-2">
-	<div class="flex md-1">
-		<TextInput
+<form method="post" class="mt-2" use:enhance>
+	<div class="flex md-1 gap-1">
+		<input
+			name="link"
+			type="text"
 			placeholder="Type or paste in a URL to shorten..."
-			extraClass="flex-grow"
+			class="rounded-md border-2 border-black dark:border-white dark:bg-black px-2 py-1 flex-grow"
 			id="url"
 			autocomplete="off"
 		/>
+		<button type="submit" class="px-2 border-2 rounded-md border-black dark:border-white">Shorten!</button>
 	</div>
 	<div>
 		<Heading level={2}>Settings</Heading>
