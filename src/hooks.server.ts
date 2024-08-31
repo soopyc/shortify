@@ -5,21 +5,17 @@ import { migrate } from "$lib/server/database";
 
 export const logger = getLogger("hooks");
 
-export const handleError: HandleServerError = ({ error, event, message, status }) => {
+export const handleError: HandleServerError = async ({ error, event, message, status }) => {
 	const id = randomUUID();
 
 	if (error instanceof Error) {
-		logger.error(error, "Error ID: %s", id);
-		if (status >= 500) {
-			logger.error("server error: %s", error.message)
-		} else {
-			switch (status) {
-				case 404:
-					logger.info('route does not exist: %s', event.url.pathname);
-					break;
-				default:
-					logger.error("Unknown server error.");
-			}
+		switch (status) {
+			case 404:
+				logger.info('route does not exist: %s', event.url.pathname);
+				break;
+			default:
+				logger.error(error, "Error ID: %s", id);
+				logger.error("Unknown server error.");
 		}
 	} else {
 		logger.error(
