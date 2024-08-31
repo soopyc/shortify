@@ -15,7 +15,7 @@ import { getLogger } from "$lib/logging.js";
 import { checkIsHTTPURL } from "$lib/server/checks/url.js";
 
 const logger = getLogger("api:link");
-async function exists(id: string) {
+async function findDb(id: string) {
 	return await db.query.links.findFirst({
 		where: eq(schema.links.id, id),
 	});
@@ -52,12 +52,12 @@ export async function POST({ request }) {
 		return userError("destination address is not a valid http url. ensure the protocol is http or https.");
 
 	if (customLink) {
-		if (await exists(customLink))
+		if (await findDb(customLink))
 			return userError(`shortlink \`${customLink}\` already exists, please choose a different one.`);
 		shortId = customLink;
 	} else {
 		let attempts = 0;
-		while (await exists(shortId) && attempts < 5) {
+		while (await findDb(shortId) && attempts < 5) {
 			logger.info(`shortlink collision detected: ${shortId}`);
 			attempts += 1;
 			shortId = generate(length);
@@ -69,7 +69,7 @@ export async function POST({ request }) {
 
 	await db.insert(schema.links).values({
 		id: shortId,
-		to: longLink,
+		to: longLink.trim(),
 	});
 
 	return json({
