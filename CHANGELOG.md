@@ -26,20 +26,29 @@ and this project adheres to
 ## [Unreleased]
 
 <!-- ### 💥 BREAKING CHANGES 💥
-
+### ✨ Features
+### 🐛 Bug Fixes
 ### 🧩 Components
 ### 📖 Documentation
 ### 🖧 Database Schema
 ### 🛠️ Utilities
-  -->
+### 📦 Dependencies  -->
+
+## [v0.1.0-beta.1]
 
 ### ✨ Features
+
 - logging in with github now supported! (b6ffc06)
+- check link metadata with `GET /api/link` (57a51dc)
+- progressively enhanced main form (e43a39c)
 
 ### 🐛 Bug Fixes
 
 - improved monitoring in production by logging error and the id in the same
   message (88a7073)
+- checking for valid http urls now return a proper error if it's not a valid url
+  (a67432f)
+- a success status is returned for successful requests to the api. (779da35)
 
 ### 📦 Dependencies
 
@@ -156,7 +165,8 @@ and this project adheres to
 
 - upgraded dependencies (please see the following commit) (df3c1e7)
 
-[Unreleased]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.4-alpha.0...HEAD
+[Unreleased]: https://patchy.soopy.moe/cassie/shortify/compare/v0.1.0-beta.1...HEAD
+[v0.1.0-beta.1]: https://patchy.soopy.moe/cassie/shortify/compare/v0.1.0-beta.0...v0.1.0-beta.1
 [v0.1.0-beta.0]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.4-alpha.0...v0.1.0-beta.0
 [v0.0.4-alpha.0]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.2...v0.0.4-alpha.0
 [v0.0.3-alpha.2]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.1...v0.0.3-alpha.2
