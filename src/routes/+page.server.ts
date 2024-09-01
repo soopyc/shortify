@@ -10,6 +10,7 @@ export const actions = {
 			method: "POST",
 			body: JSON.stringify({
 				longLink: data.get("link"),
+				customLink: data.get("custom"),
 				length: Number.parseInt(data.get("length") as string ?? "0"),
 			}),
 		})).json();
@@ -28,9 +29,9 @@ export const actions = {
 };
 
 interface Response {
-	shortId: string;
-	shortlink: string;
-	key: string;
 	success: boolean;
+	shortId?: string;
+	shortlink?: string;
+	key?: string;
 	message?: string;
 }

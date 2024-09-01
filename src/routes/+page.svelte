@@ -4,6 +4,7 @@
 	import { makeTitle } from "$lib";
 	import Heading from "$lib/components/heading.svelte";
 	import type { SubmitFunction } from "./$types";
+
 	// get the average of {MAX,MIN}_LENGTH to use as default to avoid hardcoding a broken value.
 	const MIN_LENGTH = Number.parseInt(PUB_MIN_LENGTH);
 	const MAX_LENGTH = Number.parseInt(PUB_MAX_LENGTH);
@@ -38,6 +39,7 @@
 			placeholder="Type or paste in a URL to shorten..."
 			class="rounded-md border-2 border-black dark:border-white dark:bg-black px-2 py-1 flex-grow"
 			autocomplete="off"
+			required
 			bind:value={shortenerValue}
 		/>
 		<button
@@ -80,6 +82,16 @@
 				step="1"
 				min={PUB_MIN_LENGTH}
 				max={PUB_MAX_LENGTH}
+			/>
+		</label>
+
+		<label>
+			Custom Link ID
+			<input
+				class="rounded-md border-2 border-black dark:border-white dark:bg-black px-2 py-1 w-full"
+				placeholder="Leave blank to generate"
+				name="custom"
+				type="text"
 			/>
 		</label>
 	</div>
