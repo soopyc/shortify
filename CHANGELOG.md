@@ -23,20 +23,19 @@ and this project adheres to
 
 ---
 
-## [Unreleased]
+## [v0.1.0-beta.2]
 
-<!-- ### 💥 BREAKING CHANGES 💥
 ### ✨ Features
-### 🧩 Components
-### 📖 Documentation
-### 🖧 Database Schema
-### 🛠️ Utilities
-### 📦 Dependencies  -->
+
+- custom links can now be created with the web ui. (67aa28a)
+- link redaction now supported. (429d271)
 
 ### 🐛 Bug Fixes
 
 - prevent "unknown error" from happening as often with checking if the resulting
   data is successful or not before setting the value (73f97dd)
+- login status is checked before allowing link generation (645787e)
+- shortening long urls containing the base domain are now rejected (c2a1815)
 
 ## [v0.1.0-beta.1]
 
@@ -169,7 +168,8 @@ and this project adheres to
 
 - upgraded dependencies (please see the following commit) (df3c1e7)
 
-[Unreleased]: https://patchy.soopy.moe/cassie/shortify/compare/v0.1.0-beta.1...HEAD
+[Unreleased]: https://patchy.soopy.moe/cassie/shortify/compare/v0.1.0-beta.2...HEAD
+[v0.1.0-beta.2]: https://patchy.soopy.moe/cassie/shortify/compare/v0.1.0-beta.1...v0.1.0-beta.2
 [v0.1.0-beta.1]: https://patchy.soopy.moe/cassie/shortify/compare/v0.1.0-beta.0...v0.1.0-beta.1
 [v0.1.0-beta.0]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.4-alpha.0...v0.1.0-beta.0
 [v0.0.4-alpha.0]: https://patchy.soopy.moe/cassie/shortify/compare/v0.0.3-alpha.2...v0.0.4-alpha.0
