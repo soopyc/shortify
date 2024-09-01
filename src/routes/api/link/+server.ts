@@ -5,8 +5,9 @@ import { eq } from "drizzle-orm";
 import { PUB_APP_NAME, PUB_AUTH, PUB_DOMAIN } from "$env/static/public";
 import { KEY_ALGO } from "$env/static/private";
 
-import * as schema from "$lib/db/schema";
 import postLink from "$lib/requests/schemas/postLink.js";
+import deleteLink from "$lib/requests/schemas/deleteLink.js";
+import * as schema from "$lib/db/schema";
 import { getKey } from "$lib/server/jwk";
 import { generate } from "$lib/server/nanoid.js";
 import { userError } from "$lib/server/responses.js";
@@ -14,7 +15,8 @@ import { db } from "$lib/server/database";
 import { getLogger } from "$lib/logging.js";
 import { checkIsHTTPURL } from "$lib/server/checks/url.js";
 import { trueish } from "$lib/trueish.js";
-import { checkLogin } from "$lib/server/checks/auth.js";
+import { checkJWT, checkLogin } from "$lib/server/checks/auth.js";
+import { lucia } from "$lib/server/lucia.js";
 
 const logger = getLogger("api:link");
 async function findDb(id: string) {
@@ -103,6 +105,29 @@ export async function POST({ request, locals }) {
 }
 
 // TODO
-export async function DELETE() {
-	throw new Error("Not implemented yet.");
+export async function DELETE({ request }) {
+	let body;
+	try {
+		body = deleteLink.parse(await request.json());
+	} catch {
+		return userError("invalid JSON data, check docs for schema.");
+	}
+
+	try {
+		const token = lucia.readBearerToken(request.headers.get("Authorization") ?? "") ?? "";
+		const payload = await checkJWT(token, body.id, KEY_ALGO, getKey());
+		if (!payload.delete) throw new Error();
+	} catch {
+		return json({ success: false, message: "Forbidden" }, { status: 403 });
+	}
+
+	// we are now reasonably sure that the issuer is us and token owner has perms to redact the id.
+	try {
+		// we shouldn't drop the entry because then links posted elsewhere before deletion might redirect to the "incorrect" location
+		await db.update(schema.links).set({ to: null }).where(eq(schema.links.id, body.id));
+	} catch (e) {
+		logger.error(e);
+		return json({ success: false, message: "database error" }, { status: 500 });
+	}
+	return new Response(null, { status: 204 });
 }

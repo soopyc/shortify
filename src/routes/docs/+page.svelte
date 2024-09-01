@@ -35,12 +35,12 @@
 <div>
 	<Heading level={2} id="get-api-link"><Code>GET /api/link</Code></Heading>
 	<p>Get what the server knows about a shortlink.</p>
-	<p>Query params:</p>
+	<Heading level={3}>Query params:</Heading>
 	<ul class="list-disc list-inside">
 		<li><i>id:</i> shortlink id (the shortlink part of the full uri)</li>
 	</ul>
 
-	<p>Returns: (object)</p>
+	<Heading level={3}>Returns: (object)</Heading>
 	<ul class="list-disc list-inside">
 		<li><i>id:</i> the shortlink id</li>
 		<li><i>to:</i> the destination url</li>
@@ -50,17 +50,36 @@
 <div>
 	<Heading level={2} id="post-api-link"><Code>POST /api/link</Code></Heading>
 	<p>Make a new shortlink with custom parameters.</p>
-	<p>Body (object):</p>
+	<Heading level={3}>Body (object):</Heading>
 	<ul class="list-disc list-inside">
 		<li><i>longLink: (string)</i> the long link to be shortened</li>
 		<li><i>customLink: (string | undefined)</i> a custom shortlink to use</li>
-		<li><i>length: (number | undefined)</i> the length of the generated shortlink</li>
+		<li>
+			<i>length: (number | undefined)</i> the length of the generated shortlink
+		</li>
 	</ul>
 
-	<p>Returns: (object)</p>
+	<Heading level={3}>Returns: (object)</Heading>
 	<ul class="list-disc list-inside">
 		<li><i>shortId:</i> the shortlink id</li>
 		<li><i>shortlink:</i> the full shortened url</li>
 		<li><i>key:</i> token to redact the shortlink</li>
+	</ul>
+</div>
+
+<div>
+	<Heading level={2} id="post-api-link"><Code>DELETE /api/link</Code></Heading>
+	<p>
+		Delete a shortlink with a provided token. This redacts the destination
+		address so the shortlink id cannot be reused.
+	</p>
+	<p>Requires authentication.</p>
+	<Heading level={3}>Headers</Heading>
+	<ul class="list-disc list-inside">
+		<li><i>Authorization:</i> authorization token, provided upon link creation</li>
+	</ul>
+	<Heading level={3}>Body (object):</Heading>
+	<ul class="list-disc list-inside">
+		<li><i>id: (string)</i> the short link to be redacted</li>
 	</ul>
 </div>
