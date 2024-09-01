@@ -69,7 +69,9 @@ export async function POST({ request, locals }) {
 	if (!checkIsHTTPURL(longLink))
 		return userError("destination address is not a valid http url. ensure the protocol is http or https.");
 
-	// TODO: handle if the url prefix is the same as the base url. that should reject properly.
+	// handle if the url prefix contains the base domain, which should be rejected.
+	if (longLink.includes(PUB_DOMAIN))
+		return userError(`destination address may not contain the shortener domain ${PUB_DOMAIN}.`);
 
 	if (customLink) {
 		if (await findDb(customLink))
@@ -104,7 +106,13 @@ export async function POST({ request, locals }) {
 	});
 }
 
-// TODO
+/**
+ * `DELETE /api/link`: redacts the provided shortlink.
+ * - requires:
+ *  - id: shortlink id to be redacted
+ * - request headers:
+ *  - authorization: authorization jwt.
+ */
 export async function DELETE({ request }) {
 	let body;
 	try {
