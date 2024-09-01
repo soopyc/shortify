@@ -2,17 +2,19 @@ import * as jose from "jose";
 
 import { json } from "@sveltejs/kit";
 import { eq } from "drizzle-orm";
-import { PUB_APP_NAME, PUB_DOMAIN } from "$env/static/public";
+import { PUB_APP_NAME, PUB_AUTH, PUB_DOMAIN } from "$env/static/public";
 import { KEY_ALGO } from "$env/static/private";
 
 import * as schema from "$lib/db/schema";
+import postLink from "$lib/requests/schemas/postLink.js";
 import { getKey } from "$lib/server/jwk";
 import { generate } from "$lib/server/nanoid.js";
 import { userError } from "$lib/server/responses.js";
 import { db } from "$lib/server/database";
 import { getLogger } from "$lib/logging.js";
 import { checkIsHTTPURL } from "$lib/server/checks/url.js";
-import postLink from "$lib/requests/schemas/postLink.js";
+import { trueish } from "$lib/trueish.js";
+import { checkLogin } from "$lib/server/checks/auth.js";
 
 const logger = getLogger("api:link");
 async function findDb(id: string) {
@@ -41,9 +43,13 @@ export async function GET({ url }) {
 /**
  * `POST /api/link`: create a new link. should return an object with
  *   - a shortlink
- *   - a JWT that authenticates edits/deletions to the link
+ *   - a JWT that authenticates deletions to the link
  */
-export async function POST({ request }) {
+export async function POST({ request, locals }) {
+	if (trueish(PUB_AUTH) && !checkLogin(locals)) {
+		return userError("Login required.");
+	}
+
 	let data;
 	try {
 		data = await request.json();
@@ -95,8 +101,6 @@ export async function POST({ request }) {
 			.sign(getKey()),
 	});
 }
-
-// export async function PATCH() {}
 
 // TODO
 export async function DELETE() {

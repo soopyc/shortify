@@ -1,6 +1,6 @@
 import { importJWK } from "jose";
 import { expect, test } from "vitest";
-import { checkJWT } from "./auth";
+import { checkJWT, checkLogin } from "./auth";
 
 const dummyKey = await importJWK({ kty: "oct", k: "EiSRB7OnnYXnk3gZlJt9dfPU85ov9WALG5FgoqwVyX4" });
 const edKey = await importJWK({ kty: "OKP", crv: "Ed25519", x: "wkJqqpdhV_Plfgmc11effrUuI0Gy5kQM04J2F9_tZbs", d: "4RbC4cKwPK70sh3I4LXRK3jRaWckDzR-YoEeX98cZNQ" });
@@ -57,4 +57,18 @@ test("key with the wrong alg should error", async () => {
 		"HS256",
 		dummyKey,
 	)).rejects.toThrowError(/^"alg" .* value not allowed/);
+});
+
+test("null sessions should return false", () => {
+	expect(checkLogin({
+		session: null,
+		user: null,
+	})).toBe(false);
+});
+
+test("valid sessions should return true", () => {
+	expect(checkLogin({
+		session: { id: "test", expiresAt: new Date(), fresh: true, userId: "test" },
+		user: { githubId: 0, id: "test", username: "test" },
+	})).toBe(true);
 });
