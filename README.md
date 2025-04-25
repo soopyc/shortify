@@ -1,5 +1,7 @@
 # Shortify
 
+![screenshot of the shortify ui while logged in.](./docs/screenshot-1.png)
+
 Sleek self-hostable link shortening service. No analytics included!
 
 ## Deployment
