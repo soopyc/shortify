@@ -37,7 +37,7 @@
 		"@stylistic/eslint-plugin": "^2.7.2",
 		"@sveltejs/adapter-auto": "^3.2.4",
 		"@sveltejs/adapter-node": "^5.2.2",
-		"@sveltejs/kit": "^2.5.25",
+		"@sveltejs/kit": "^2.20.6",
 		"@sveltejs/vite-plugin-svelte": "^3.1.2",
 		"@types/pg": "^8.11.8",
 		"@unocss/extractor-svelte": "^0.62.3",
